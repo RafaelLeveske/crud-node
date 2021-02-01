@@ -1,4 +1,4 @@
-# Node Auth API
+# CRUD Node
 
 ## 📝 Conteúdo
 
@@ -12,24 +12,33 @@
 
 ## 🏁 About <a name = "about"></a>
 
-- This project is about a API for authentication purposes developed in Node with the authentication based on the library JWT(JSON Web Token), using Typescript and DDD pattern.
+- Esse projeto é destinado a cadastro e autenticação de usuários os quais poderão cadastrar suas empresas, produtos e serviços, assim como listar, editar e deletar.
+
+- As empresas podem conter um ou mais produtos, assim como cada produto pode conter um ou mais serviços.
+- O usuario pode ver somente suas empresas e produtos.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
-To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) + [Yarn](https://yarnpkg.com/) installed on your computer.
+Para clonar e utilizar essa aplicação você irá precisar do [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) + [Yarn](https://yarnpkg.com/) instalados em sua máquina.
 
-From your command line:
+Abra o seu terminal para iniciar.
 
 ### Install API
 
 ```bash
-# Clone this repository
-$ git clone https://github.com/RafaelLeveske/node-auth-api.git
+# Clone o repositório
+$ git clone https://github.com/RafaelLeveske/crud-node.git
 
-# Install dependencies
+# Installe as dependências
 $ yarn install
 
-# Create database
-Create a database with the same name included on ormconfig.json file.
+# Crie a database
+Crie as databases com o mesmo nome do arquivo ormconfig.json.
+
+# Crie uma instância mongoDB usando docker
+$ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
+
+# Create the instance of redis using docker
+$ docker run --name crud-node-redis -p 6379:6379 -d -t redis:alpine
 ```
 
 ## ⛏️ Built Using <a name = "built_using"></a>
@@ -37,6 +46,7 @@ Create a database with the same name included on ormconfig.json file.
 - [Node](https://nodejs.org/en/) - Javascript Runtime Environment.
 - [Express](https://expressjs.com/pt-br/) - Framework Web.
 - [TypeORM](https://typeorm.io/#/) - ORM for Typescript.
+- [MongoDB](https://www.mongodb.com/2) - A fully managed NO-SQL database service.
 - [JWT](https://jwt.io/) JSON Web Token.
 
 ## ✍️ Author <a name = "authors"></a>
