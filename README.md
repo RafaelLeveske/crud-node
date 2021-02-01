@@ -31,6 +31,9 @@ $ git clone https://github.com/RafaelLeveske/crud-node.git
 # Installe as dependências
 $ yarn install
 
+# Execute os testes
+$ yarn test
+
 # Crie a database
 Crie as databases com o mesmo nome do arquivo ormconfig.json.
 
@@ -39,6 +42,9 @@ $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 
 # Crie uma instância redis usando docker
 $ docker run --name crud-node-redis -p 6379:6379 -d -t redis:alpine
+
+# Inicie o servidor
+$ yarn dev:server
 ```
 
 ## ⛏️ Built Using <a name = "built_using"></a>
