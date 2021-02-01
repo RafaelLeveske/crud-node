@@ -6,7 +6,7 @@ import IUsersRepository from '../repositories/IUsersRepository';
 import User from '../infra/typeorm/schemas/User';
 
 interface IRequest {
-  user_id: ObjectID;
+  user_id: ObjectID | string;
 }
 
 @injectable()

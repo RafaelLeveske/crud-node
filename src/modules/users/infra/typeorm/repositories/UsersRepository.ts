@@ -10,10 +10,10 @@ class UsersRepository implements IUsersRepository {
   private ormRepository: MongoRepository<User>;
 
   constructor() {
-    this.ormRepository = getMongoRepository(User);
+    this.ormRepository = getMongoRepository(User, 'mongo');
   }
 
-  public async findById(id: ObjectID): Promise<User | undefined> {
+  public async findById(id: ObjectID | string): Promise<User | undefined> {
     const user = await this.ormRepository.findOne(String(id));
 
     return user;
