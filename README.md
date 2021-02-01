@@ -47,7 +47,7 @@ $ docker run --name crud-node-redis -p 6379:6379 -d -t redis:alpine
 - [Express](https://expressjs.com/pt-br/) - Framework Web.
 - [TypeORM](https://typeorm.io/#/) - ORM for Typescript.
 - [MongoDB](https://www.mongodb.com/2) - A fully managed NO-SQL database service.
-- [JWT](https://jwt.io/) JSON Web Token.
+- [JWT](https://jwt.io/) - JSON Web Token.
 
 ## ✍️ Author <a name = "authors"></a>
 
