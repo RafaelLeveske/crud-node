@@ -1,5 +1,6 @@
+import { ObjectId } from 'mongodb';
 import ICreateUserDTO from '../dtos/ICreateUserDTO';
-import User from '../infra/typeorm/entities/User';
+import User from '../infra/typeorm/schemas/User';
 
 export default interface IUsersRepository {
   findById(id: string): Promise<User | undefined>;

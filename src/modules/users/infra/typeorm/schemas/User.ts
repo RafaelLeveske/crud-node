@@ -1,8 +1,9 @@
 import {
-  Entity,
   Column,
-  PrimaryGeneratedColumn,
   CreateDateColumn,
+  Entity,
+  ObjectID,
+  ObjectIdColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
@@ -10,8 +11,8 @@ import { Exclude } from 'class-transformer';
 
 @Entity('users')
 class User {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @ObjectIdColumn()
+  id: ObjectID;
 
   @Column()
   name: string;

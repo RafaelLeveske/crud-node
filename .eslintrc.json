@@ -20,20 +20,13 @@
       "prettier"
   ],
   "rules": {
+    "@typescript-eslint/naming-convention" : "off",
     "no-console":"off",
     "no-useless-constructor": "off",
     "class-methods-use-this": "off",
     "import/first": "off",
     "@typescript-eslint/no-var-requires": "off",
     "camelcase": "off",
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        "selector": "interface",
-        "prefix": ["I"],
-        "format": ["PascalCase"]
-      }
-    ],
      "prettier/prettier": "error",
      "import/extensions": [
       "error",

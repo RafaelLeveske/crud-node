@@ -1,15 +1,16 @@
-import { getRepository, Repository } from 'typeorm';
+import { getMongoRepository, MongoRepository } from 'typeorm';
+import { ObjectId } from 'mongodb';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
-import User from '../entities/User';
+import User from '../schemas/User';
 
 import ICreateUserDTO from '../../../dtos/ICreateUserDTO';
 
 class UsersRepository implements IUsersRepository {
-  private ormRepository: Repository<User>;
+  private ormRepository: MongoRepository<User>;
 
   constructor() {
-    this.ormRepository = getRepository(User);
+    this.ormRepository = getMongoRepository(User);
   }
 
   public async findById(id: string): Promise<User | undefined> {
