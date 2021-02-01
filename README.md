@@ -37,7 +37,7 @@ Crie as databases com o mesmo nome do arquivo ormconfig.json.
 # Crie uma instância mongoDB usando docker
 $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 
-# Create the instance of redis using docker
+# Crie uma instância redis usando docker
 $ docker run --name crud-node-redis -p 6379:6379 -d -t redis:alpine
 ```
 
