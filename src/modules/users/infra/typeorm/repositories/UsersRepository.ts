@@ -1,5 +1,5 @@
 import { getMongoRepository, MongoRepository } from 'typeorm';
-import { ObjectId } from 'mongodb';
+import { ObjectID } from 'mongodb';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import User from '../schemas/User';
@@ -13,8 +13,8 @@ class UsersRepository implements IUsersRepository {
     this.ormRepository = getMongoRepository(User);
   }
 
-  public async findById(id: string): Promise<User | undefined> {
-    const user = await this.ormRepository.findOne(id);
+  public async findById(id: ObjectID): Promise<User | undefined> {
+    const user = await this.ormRepository.findOne(String(id));
 
     return user;
   }

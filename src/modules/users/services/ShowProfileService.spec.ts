@@ -1,4 +1,5 @@
 import AppError from '@shared/errors/AppError';
+import { ObjectID } from 'typeorm';
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import ShowProfileService from './ShowProfileService';
 
@@ -30,7 +31,7 @@ describe('UpdateProfile', () => {
   it('should not be able to show the profile of a non-existing user', async () => {
     expect(
       showProfile.execute({
-        user_id: 'non-existing-user-id',
+        user_id: Object(22222),
       }),
     ).rejects.toBeInstanceOf(AppError);
   });

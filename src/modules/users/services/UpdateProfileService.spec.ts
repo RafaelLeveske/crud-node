@@ -39,7 +39,7 @@ describe('UpdateProfile', () => {
   it('should not be able update the profile from non-existing user', async () => {
     expect(
       updateProfile.execute({
-        user_id: 'non-existing-user-id',
+        user_id: Object(22222),
         name: 'Test',
         email: 'test@example.com',
       }),
