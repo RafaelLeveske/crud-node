@@ -1,6 +1,6 @@
 import ICreateCompanyDTO from '@modules/companies/dtos/ICreateCompanyDTO';
 import ICompaniesRepository from '@modules/companies/repositories/ICompaniesRepository';
-import { getMongoRepository, MongoRepository } from 'typeorm';
+import { getMongoRepository, MongoRepository, ObjectID } from 'typeorm';
 import Company from '../schemas/Company';
 
 class CompaniesRepository implements ICompaniesRepository {
@@ -8,6 +8,12 @@ class CompaniesRepository implements ICompaniesRepository {
 
   constructor() {
     this.ormRepository = getMongoRepository(Company, 'mongo');
+  }
+
+  public async findById(id: ObjectID | string): Promise<Company | undefined> {
+    const company = await this.ormRepository.findOne(String(id));
+
+    return company;
   }
 
   public async create(companyData: ICreateCompanyDTO): Promise<Company> {
