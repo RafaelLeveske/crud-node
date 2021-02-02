@@ -9,12 +9,12 @@ export default class CompaniesController {
 
     const createCompany = container.resolve(CreateCompanyService);
 
-    const user = await createCompany.execute({
+    const company = await createCompany.execute({
       name,
       cnpj,
       user_id: request.user.id,
     });
 
-    return response.json(classToClass(user));
+    return response.json(classToClass(company));
   }
 }

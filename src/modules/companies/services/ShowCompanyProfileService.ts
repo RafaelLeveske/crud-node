@@ -1,15 +1,14 @@
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
-import { ObjectID } from 'mongodb';
 import ICompaniesRepository from '@modules/companies/repositories/ICompaniesRepository';
 import Company from '@modules/companies/infra/typeorm/schemas/Company';
 
 interface IRequest {
-  company_id: ObjectID | string;
+  company_id: string;
 }
 
 @injectable()
-class ShowCompanyService {
+class ShowCompanyProfileService {
   constructor(
     @inject('CompaniesRepository')
     private companiesRepository: ICompaniesRepository,
@@ -26,4 +25,4 @@ class ShowCompanyService {
   }
 }
 
-export default ShowCompanyService;
+export default ShowCompanyProfileService;
