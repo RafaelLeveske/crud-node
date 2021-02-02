@@ -15,8 +15,8 @@ class Company {
   @Column()
   name: string;
 
-  @ObjectIdColumn()
-  recipient_id: ObjectID;
+  @Column()
+  recipient_id: string;
 
   @CreateDateColumn()
   created_at: Date;

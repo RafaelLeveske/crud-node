@@ -10,18 +10,16 @@ class CompaniesRepository implements ICompaniesRepository {
     this.ormRepository = getMongoRepository(Company, 'mongo');
   }
 
-  public async create({
-    name,
-    recipient_id,
-  }: ICreateCompanyDTO): Promise<Company> {
-    const company = this.ormRepository.create({
-      name,
-      recipient_id,
-    });
+  public async create(companyData: ICreateCompanyDTO): Promise<Company> {
+    const company = this.ormRepository.create(companyData);
 
     await this.ormRepository.save(company);
 
     return company;
+  }
+
+  public async save(company: Company): Promise<Company> {
+    return this.ormRepository.save(company);
   }
 }
 
