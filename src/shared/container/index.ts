@@ -5,7 +5,7 @@ import '@modules/users/providers';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository';
 import CompaniesRepository from '@modules/companies/infra/typeorm/repositories/CompaniesRepository';
-import IProductsRepository from '@modules/companies/repositories/IProductsRepository';
+import IProductsRepository from '@modules/products/repositories/IProductsRepository';
 import ICompaniesRepository from '../../modules/companies/repositories/ICompaniesRepository';
 import ProductsRepository from '../../modules/products/infra/typeorm/repositories/ProductsRepository';
 
