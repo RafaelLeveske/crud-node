@@ -13,7 +13,6 @@ productsRouter.post(
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().max(50).required(),
-      company_id: Joi.string().required(),
     },
   }),
   productsController.create,
