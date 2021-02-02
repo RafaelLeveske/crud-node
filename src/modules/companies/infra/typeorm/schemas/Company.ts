@@ -16,6 +16,9 @@ class Company {
   name: string;
 
   @Column()
+  cnpj: string;
+
+  @Column()
   recipient_id: string;
 
   @CreateDateColumn()

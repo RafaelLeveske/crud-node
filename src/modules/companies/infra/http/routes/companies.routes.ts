@@ -12,7 +12,8 @@ companiesRouter.post(
   '/',
   celebrate({
     [Segments.BODY]: {
-      name: Joi.string().length(100).required(),
+      name: Joi.string().max(100).required(),
+      cnpj: Joi.string().length(14).required(),
     },
   }),
   companiesController.create,

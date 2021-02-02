@@ -5,12 +5,13 @@ import CreateCompanyService from '@modules/companies/services/CreateCompanyServi
 
 export default class CompaniesController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name } = request.body;
+    const { name, cnpj } = request.body;
 
     const createCompany = container.resolve(CreateCompanyService);
 
     const user = await createCompany.execute({
       name,
+      cnpj,
       user_id: request.user.id,
     });
 

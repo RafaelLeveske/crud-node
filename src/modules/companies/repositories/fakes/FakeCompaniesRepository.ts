@@ -7,14 +7,16 @@ class FakeCompaniesRepository implements ICompaniesRepository {
   private notifications: Company[] = [];
 
   public async create({
-    recipient_id,
     name,
+    cnpj,
+    recipient_id,
   }: ICreateCompanyDTO): Promise<Company> {
     const company = new Company();
 
     Object.assign(company, {
       id: new ObjectID(),
       name,
+      cnpj,
       recipient_id,
     });
 
