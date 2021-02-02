@@ -3,6 +3,10 @@ import IProductsRepository from '@modules/products/repositories/IProductsReposit
 import { getMongoRepository, MongoRepository } from 'typeorm';
 import Product from '../schemas/Product';
 
+interface IFindProducts {
+  id: string;
+}
+
 class ProductsRepository implements IProductsRepository {
   private ormRepository: MongoRepository<Product>;
 
@@ -18,8 +22,8 @@ class ProductsRepository implements IProductsRepository {
     return product;
   }
 
-  public async save(product: Product): Promise<Product> {
-    return this.ormRepository.save(product);
+  public async findAllById(products: IFindProducts[]): Promise<Product[]> {
+    return this.ormRepository.findByIds(products);
   }
 }
 
