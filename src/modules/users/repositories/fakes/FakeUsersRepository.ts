@@ -7,13 +7,17 @@ import User, { UserModel } from '../../infra/typeorm/schemas/User';
 class FakeUsersRepository implements IUsersRepository {
   private users: UserModel[] = [];
 
-  public async findById(id: ObjectID | string): Promise<UserModel | undefined> {
+  public async findById(
+    id: ObjectID | string,
+  ): Promise<UserModel | null | undefined> {
     const findUser = this.users.find(user => user.id === id);
 
     return findUser;
   }
 
-  public async findByEmail(email: string): Promise<UserModel | undefined> {
+  public async findByEmail(
+    email: string,
+  ): Promise<UserModel | null | undefined> {
     const findUser = this.users.find(user => user.email === email);
 
     return findUser;

@@ -1,4 +1,5 @@
 import { ObjectID } from 'mongodb';
+import mongoose from 'mongoose';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import User, { UserModel } from '../schemas/User';
@@ -6,34 +7,43 @@ import User, { UserModel } from '../schemas/User';
 import ICreateUserDTO from '../../../dtos/ICreateUserDTO';
 
 class UsersRepository implements IUsersRepository {
-  private odmRepository: UserModel;
-
-  constructor() {
-    this.odmRepository = new User();
-  }
-
-  public async findById(id: ObjectID | string): Promise<UserModel | undefined> {
-    const user = await this.odmRepository.collection.findOne({ id });
+  public async findById(
+    id: ObjectID | string,
+  ): Promise<UserModel | null | undefined> {
+    const user = await User.findById({ id });
 
     return user;
   }
 
-  public async findByEmail(email: string): Promise<UserModel | undefined> {
-    const user = await this.odmRepository.collection.findOne({ email });
+  public async findByEmail(
+    email: string,
+  ): Promise<UserModel | null | undefined> {
+    const user = await User.findOne({ email });
 
     return user;
   }
 
   public async create(userData: ICreateUserDTO): Promise<UserModel> {
-    const user = this.odmRepository.collection.findAndModify(userData);
-
-    await this.odmRepository.save(user);
+    const user = await User.create(userData);
 
     return user;
   }
 
   public async save(user: UserModel): Promise<UserModel> {
-    return this.odmRepository.collection.findAndModify(user);
+    const saveUser = await User.updateOne(
+      {
+        _id: new mongoose.mongo.ObjectId(user.id),
+      },
+      {
+        $set: {
+          name: user.name,
+          email: user.email,
+          password: user.password,
+        },
+      },
+    );
+
+    return saveUser;
   }
 }
 
