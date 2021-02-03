@@ -1,28 +1,9 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ObjectID,
-  ObjectIdColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import mongoose, { Schema } from 'mongoose';
 
-@Entity('products')
-class Product {
-  @ObjectIdColumn()
-  id: ObjectID;
-
-  @Column()
+export type CompanyModel = mongoose.Document & {
+  user: UserModel['_id'];
   name: string;
-
-  @Column()
-  recipient_id: string;
-
-  @CreateDateColumn()
+  cnpj: string;
   created_at: Date;
-
-  @UpdateDateColumn()
   updated_at: Date;
-}
-
-export default Product;
+};

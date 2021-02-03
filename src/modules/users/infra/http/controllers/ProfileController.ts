@@ -11,9 +11,12 @@ export default class ProfileController {
 
     const showProfile = container.resolve(ShowProfileService);
 
-    const user = await showProfile.execute({ user_id });
+    const user = await showProfile.execute({
+      user_id,
+    });
 
-    return response.json(classToClass(user));
+    console.log(user);
+    return response.json(user);
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
