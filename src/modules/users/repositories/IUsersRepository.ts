@@ -1,10 +1,9 @@
 import { ObjectID } from 'mongodb';
 import ICreateUserDTO from '../dtos/ICreateUserDTO';
-import User from '../infra/typeorm/schemas/User';
+import { UserModel } from '../infra/typeorm/schemas/User';
 
 export default interface IUsersRepository {
-  findById(id: ObjectID | string): Promise<User | undefined>;
-  findByEmail(email: string): Promise<User | undefined>;
-  create(data: ICreateUserDTO): Promise<User>;
-  save(user: User): Promise<User>;
+  findById(id: ObjectID | string): Promise<UserModel | undefined>;
+  findByEmail(email: string): Promise<UserModel | undefined>;
+  create(data: ICreateUserDTO): Promise<UserModel>;
 }

@@ -6,6 +6,7 @@ dotenv.config();
 
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
+import mongoose from 'mongoose';
 import { errors } from 'celebrate';
 import 'express-async-errors';
 
@@ -19,6 +20,10 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+mongoose.connect('mongodb://localhost:27017/mongo-crud-node', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 app.use(routes);
 app.use(errors());
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {

@@ -1,34 +1,29 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ObjectID,
-  ObjectIdColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import mongoose, { Schema } from 'mongoose';
 
-import { Exclude } from 'class-transformer';
-
-@Entity('users')
-class User {
-  @ObjectIdColumn()
-  id: ObjectID;
-
-  @Column()
+export type UserModel = mongoose.Document & {
   name: string;
-
-  @Column()
   email: string;
-
-  @Column()
-  @Exclude()
   password: string;
-
-  @CreateDateColumn()
   created_at: Date;
+};
 
-  @UpdateDateColumn()
-  updated_at: Date;
-}
+const userSchema: Schema = new Schema({
+  name: {
+    type: String,
+  },
+  email: {
+    type: String,
+    unique: true,
+  },
+  password: {
+    type: String,
+  },
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+const User = mongoose.model<UserModel>('User', userSchema);
 
 export default User;

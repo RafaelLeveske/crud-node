@@ -1,42 +1,39 @@
-import { getMongoRepository, MongoRepository } from 'typeorm';
 import { ObjectID } from 'mongodb';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
-import User from '../schemas/User';
+import User, { UserModel } from '../schemas/User';
 
 import ICreateUserDTO from '../../../dtos/ICreateUserDTO';
 
 class UsersRepository implements IUsersRepository {
-  private ormRepository: MongoRepository<User>;
+  private odmRepository: UserModel;
 
   constructor() {
-    this.ormRepository = getMongoRepository(User, 'mongo');
+    this.odmRepository = new User();
   }
 
-  public async findById(id: ObjectID | string): Promise<User | undefined> {
-    const user = await this.ormRepository.findOne(String(id));
+  public async findById(id: ObjectID | string): Promise<UserModel | undefined> {
+    const user = await this.odmRepository.collection.findOne({ id });
 
     return user;
   }
 
-  public async findByEmail(email: string): Promise<User | undefined> {
-    const user = await this.ormRepository.findOne({
-      where: { email },
-    });
+  public async findByEmail(email: string): Promise<UserModel | undefined> {
+    const user = await this.odmRepository.collection.findOne({ email });
 
     return user;
   }
 
-  public async create(userData: ICreateUserDTO): Promise<User> {
-    const user = this.ormRepository.create(userData);
+  public async create(userData: ICreateUserDTO): Promise<UserModel> {
+    const user = this.odmRepository.collection.findAndModify(userData);
 
-    await this.ormRepository.save(user);
+    await this.odmRepository.save(user);
 
     return user;
   }
 
-  public async save(user: User): Promise<User> {
-    return this.ormRepository.save(user);
+  public async save(user: UserModel): Promise<UserModel> {
+    return this.odmRepository.collection.findAndModify(user);
   }
 }
 
