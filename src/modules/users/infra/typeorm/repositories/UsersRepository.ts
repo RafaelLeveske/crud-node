@@ -7,7 +7,9 @@ import User, { UserModel } from '../schemas/User';
 import ICreateUserDTO from '../../../dtos/ICreateUserDTO';
 
 class UsersRepository implements IUsersRepository {
-  public async findById(id: ObjectID | string): Promise<UserModel | null> {
+  public async findById(
+    id: ObjectID | string,
+  ): Promise<UserModel | null | undefined> {
     const user = await User.findById(id);
 
     return user;
@@ -28,7 +30,7 @@ class UsersRepository implements IUsersRepository {
   }
 
   public async save(user: UserModel): Promise<UserModel> {
-    const saveUser = await User.updateOne(
+    return User.updateOne(
       {
         _id: new mongoose.mongo.ObjectId(user.id),
       },
@@ -40,8 +42,6 @@ class UsersRepository implements IUsersRepository {
         },
       },
     );
-
-    return saveUser;
   }
 }
 

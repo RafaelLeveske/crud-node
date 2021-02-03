@@ -1,5 +1,7 @@
 import { ObjectID } from 'mongodb';
-import Product from '@modules/products/infra/typeorm/schemas/Product';
+import Product, {
+  ProductModel,
+} from '@modules/products/infra/typeorm/schemas/Product';
 import ICreateProductDTO from '@modules/products/dtos/ICreateProductDTO';
 import AppError from '@shared/errors/AppError';
 import IProductsRepository from '../IProductsRepository';
@@ -9,18 +11,18 @@ interface IFindProducts {
 }
 
 class FakeProductsRepository implements IProductsRepository {
-  private products: Product[] = [];
+  private products: ProductModel[] = [];
 
   public async create({
     name,
-    recipient_id,
-  }: ICreateProductDTO): Promise<Product> {
+    company,
+  }: ICreateProductDTO): Promise<ProductModel> {
     const product = new Product();
 
     Object.assign(product, {
       id: new ObjectID(),
       name,
-      recipient_id,
+      company,
     });
 
     this.products.push(product);
@@ -28,7 +30,7 @@ class FakeProductsRepository implements IProductsRepository {
     return product;
   }
 
-  public async findAllById(products: IFindProducts[]): Promise<Product[]> {
+  public async findAllById(products: IFindProducts[]): Promise<ProductModel[]> {
     const AllIdsFromProductsList = this.products.map(productIdFromList => {
       const productIds = products.find(
         productId => productId.id === productIdFromList.id,

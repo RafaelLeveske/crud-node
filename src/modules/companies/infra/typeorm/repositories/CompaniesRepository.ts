@@ -4,8 +4,8 @@ import ICompaniesRepository from '@modules/companies/repositories/ICompaniesRepo
 import Company, { CompanyModel } from '../schemas/Company';
 
 class CompaniesRepository implements ICompaniesRepository {
-  public async findById(id: string): Promise<CompanyModel | null | undefined> {
-    const company = await Company.findById({ id });
+  public async findById(id: string): Promise<CompanyModel | null> {
+    const company = await Company.findById(id).populate('products');
 
     return company;
   }

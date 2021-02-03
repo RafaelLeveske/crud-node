@@ -26,7 +26,7 @@ describe('CreateCompany', () => {
   });
 
   it('should be able to create a new company', async () => {
-    const user = await createUser.execute({
+    const user = await fakeUsersRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
@@ -39,6 +39,7 @@ describe('CreateCompany', () => {
     });
 
     expect(company).toHaveProperty('id');
+    expect(company).toHaveProperty('products');
   });
 
   it('should not be able to create a new company from a non existing user', async () => {

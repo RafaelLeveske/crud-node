@@ -1,29 +1,22 @@
 import ICreateProductDTO from '@modules/products/dtos/ICreateProductDTO';
 import IProductsRepository from '@modules/products/repositories/IProductsRepository';
-import { getMongoRepository, MongoRepository } from 'typeorm';
-import Product from '../schemas/Product';
+import Product, { ProductModel } from '../schemas/Product';
 
 interface IFindProducts {
   id: string;
 }
 
 class ProductsRepository implements IProductsRepository {
-  private ormRepository: MongoRepository<Product>;
-
-  constructor() {
-    this.ormRepository = getMongoRepository(Product, 'mongo');
-  }
-
-  public async create(productData: ICreateProductDTO): Promise<Product> {
-    const product = this.ormRepository.create(productData);
-
-    await this.ormRepository.save(product);
+  public async create(productData: ICreateProductDTO): Promise<ProductModel> {
+    const product = await Product.create(productData);
 
     return product;
   }
 
-  public async findAllById(products: IFindProducts[]): Promise<Product[]> {
-    return this.ormRepository.findByIds(products);
+  public async findAllById(products: IFindProducts[]): Promise<ProductModel[]> {
+    const findAllProducts = await Product.find(products);
+
+    return findAllProducts;
   }
 }
 

@@ -1,40 +1,42 @@
-import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
-import CreateUserService from '@modules/users/services/CreateUserService';
 import AppError from '@shared/errors/AppError';
+import FakeCompaniesRepository from '@modules/companies/repositories/fakes/FakeCompaniesRepository';
 import FakeProductsRepository from '../repositories/fakes/FakeProductsRepository';
 import CreateProductService from './CreateProductService';
 
 let fakeUsersRepository: FakeUsersRepository;
-let fakeHashProvider: FakeHashProvider;
 let fakeProductsRepository: FakeProductsRepository;
-let createUser: CreateUserService;
+let fakeCompaniesRepository: FakeCompaniesRepository;
 let createProduct: CreateProductService;
 
 describe('CreateProduct', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
-    fakeHashProvider = new FakeHashProvider();
     fakeProductsRepository = new FakeProductsRepository();
-
-    createUser = new CreateUserService(fakeUsersRepository, fakeHashProvider);
+    fakeCompaniesRepository = new FakeCompaniesRepository();
 
     createProduct = new CreateProductService(
-      fakeUsersRepository,
+      fakeCompaniesRepository,
       fakeProductsRepository,
     );
   });
 
   it('should be able to create a new product', async () => {
-    const user = await createUser.execute({
+    const user = await fakeUsersRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
     });
 
+    const company = await fakeCompaniesRepository.create({
+      name: 'Doe Company',
+      cnpj: '00099900099900',
+      user: user.id,
+    });
+
     const product = await createProduct.execute({
       name: 'Doe Product',
-      user_id: Object(user.id),
+      company_id: company.id,
     });
 
     expect(product).toHaveProperty('id');
@@ -44,7 +46,7 @@ describe('CreateProduct', () => {
     await expect(
       createProduct.execute({
         name: 'Doe Product',
-        user_id: Object(222),
+        company_id: 'non-existing-id',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });

@@ -3,6 +3,6 @@ import { CompanyModel } from '../infra/typeorm/schemas/Company';
 
 export default interface ICompaniesRepository {
   create(data: ICreateCompanyDTO): Promise<CompanyModel>;
-  findById(id: string): Promise<CompanyModel | null | undefined>;
+  findById(id: string): Promise<CompanyModel | null>;
   save(company: CompanyModel): Promise<CompanyModel>;
 }

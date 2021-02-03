@@ -1,8 +1,10 @@
+import { ProductModel } from '@modules/products/infra/typeorm/schemas/Product';
 import { UserModel } from '@modules/users/infra/typeorm/schemas/User';
 import mongoose, { Schema } from 'mongoose';
 
 export type CompanyModel = mongoose.Document & {
   user: UserModel['_id'];
+  products: ProductModel['_id'];
   name: string;
   cnpj: string;
   created_at: Date;
@@ -14,6 +16,12 @@ const companySchema: Schema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
+  products: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Product',
+    },
+  ],
   name: {
     type: String,
   },
