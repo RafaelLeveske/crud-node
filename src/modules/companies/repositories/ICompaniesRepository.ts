@@ -1,8 +1,8 @@
 import ICreateCompanyDTO from '../dtos/ICreateCompanyDTO';
-import Company from '../infra/typeorm/schemas/Company';
+import { CompanyModel } from '../infra/typeorm/schemas/Company';
 
 export default interface ICompaniesRepository {
-  create(data: ICreateCompanyDTO): Promise<Company>;
-  findById(id: string): Promise<Company | undefined>;
-  save(company: Company): Promise<Company>;
+  create(data: ICreateCompanyDTO): Promise<CompanyModel>;
+  findById(id: string): Promise<CompanyModel | null | undefined>;
+  save(company: CompanyModel): Promise<CompanyModel>;
 }

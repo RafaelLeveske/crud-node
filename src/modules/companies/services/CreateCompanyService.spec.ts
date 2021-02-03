@@ -35,7 +35,7 @@ describe('CreateCompany', () => {
     const company = await createCompany.execute({
       name: 'Doe Company',
       cnpj: '00099900099900',
-      user_id: Object(user.id),
+      user_id: user.id,
     });
 
     expect(company).toHaveProperty('id');
@@ -46,7 +46,7 @@ describe('CreateCompany', () => {
       createCompany.execute({
         name: 'Doe Company',
         cnpj: '00099900099909',
-        user_id: Object(1222),
+        user_id: 'non_user_id',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });

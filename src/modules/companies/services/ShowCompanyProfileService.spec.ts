@@ -37,11 +37,11 @@ describe('ShowCompanyProfile', () => {
     const company = await createCompany.execute({
       name: 'Doe Company',
       cnpj: '00099900099900',
-      user_id: Object(user.id),
+      user_id: user.id,
     });
 
     const companyProfile = await showCompanyProfile.execute({
-      company_id: Object(company.id),
+      company_id: company.id,
     });
 
     expect(companyProfile.name).toBe('Doe Company');

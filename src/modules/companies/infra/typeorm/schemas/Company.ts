@@ -1,31 +1,36 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ObjectID,
-  ObjectIdColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { UserModel } from '@modules/users/infra/typeorm/schemas/User';
+import mongoose, { Schema } from 'mongoose';
 
-@Entity('companies')
-class Company {
-  @ObjectIdColumn()
-  id: ObjectID;
-
-  @Column()
+export type CompanyModel = mongoose.Document & {
+  user: UserModel['_id'];
   name: string;
-
-  @Column()
   cnpj: string;
-
-  @Column()
-  recipient_id: string;
-
-  @CreateDateColumn()
   created_at: Date;
-
-  @UpdateDateColumn()
   updated_at: Date;
-}
+};
+
+const companySchema: Schema = new Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  name: {
+    type: String,
+  },
+  cnpj: {
+    type: String,
+    unique: true,
+  },
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
+  updated_at: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+const Company = mongoose.model<CompanyModel>('Company', companySchema);
 
 export default Company;

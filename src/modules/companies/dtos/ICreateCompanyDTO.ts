@@ -1,5 +1,7 @@
-export default interface ICreateNotificationDTO {
+import { UserModel } from '@modules/users/infra/typeorm/schemas/User';
+
+export default interface ICreateCompanyDTO {
   name: string;
   cnpj: string;
-  recipient_id: string;
+  user: UserModel;
 }

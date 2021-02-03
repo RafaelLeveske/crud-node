@@ -1,31 +1,34 @@
+import mongoose from 'mongoose';
 import ICreateCompanyDTO from '@modules/companies/dtos/ICreateCompanyDTO';
 import ICompaniesRepository from '@modules/companies/repositories/ICompaniesRepository';
-import { getMongoRepository, MongoRepository } from 'typeorm';
-import Company from '../schemas/Company';
+import Company, { CompanyModel } from '../schemas/Company';
 
 class CompaniesRepository implements ICompaniesRepository {
-  private ormRepository: MongoRepository<Company>;
-
-  constructor() {
-    this.ormRepository = getMongoRepository(Company, 'mongo');
-  }
-
-  public async findById(id: string): Promise<Company | undefined> {
-    const company = await this.ormRepository.findOne(id);
+  public async findById(id: string): Promise<CompanyModel | null | undefined> {
+    const company = await Company.findById({ id });
 
     return company;
   }
 
-  public async create(companyData: ICreateCompanyDTO): Promise<Company> {
-    const company = this.ormRepository.create(companyData);
-
-    await this.ormRepository.save(company);
+  public async create(companyData: ICreateCompanyDTO): Promise<CompanyModel> {
+    const company = await Company.create(companyData);
 
     return company;
   }
 
-  public async save(company: Company): Promise<Company> {
-    return this.ormRepository.save(company);
+  public async save(company: CompanyModel): Promise<CompanyModel> {
+    const saveCompany = await Company.updateOne(
+      {
+        _id: new mongoose.mongo.ObjectId(company.id),
+      },
+      {
+        $set: {
+          name: company.name,
+          cnpj: company.cnpj,
+        },
+      },
+    );
+    return saveCompany;
   }
 }
 

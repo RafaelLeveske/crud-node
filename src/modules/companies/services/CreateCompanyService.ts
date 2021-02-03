@@ -3,7 +3,7 @@ import { injectable, inject } from 'tsyringe';
 import AppError from '@shared/errors/AppError';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import ICompaniesRepository from '../repositories/ICompaniesRepository';
-import Company from '../infra/typeorm/schemas/Company';
+import { CompanyModel } from '../infra/typeorm/schemas/Company';
 
 interface IRequest {
   name: string;
@@ -21,7 +21,11 @@ class CreateCompanyService {
     private companiesRepository: ICompaniesRepository,
   ) {}
 
-  public async execute({ name, cnpj, user_id }: IRequest): Promise<Company> {
+  public async execute({
+    name,
+    cnpj,
+    user_id,
+  }: IRequest): Promise<CompanyModel> {
     const userId = await this.usersRepository.findById(user_id);
 
     if (!userId) {
@@ -31,7 +35,7 @@ class CreateCompanyService {
     const company = await this.companiesRepository.create({
       name,
       cnpj,
-      recipient_id: user_id,
+      user: userId,
     });
 
     return company;
