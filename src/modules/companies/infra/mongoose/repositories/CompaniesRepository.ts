@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import ICreateCompanyDTO from '@modules/companies/dtos/ICreateCompanyDTO';
 import ICompaniesRepository from '@modules/companies/repositories/ICompaniesRepository';
 import { ObjectID } from 'mongodb';
@@ -35,10 +34,10 @@ class CompaniesRepository implements ICompaniesRepository {
     return company;
   }
 
-  public async save(company: CompanyModel): Promise<CompanyModel> {
-    const saveCompany = await Company.updateOne(
+  public async save(company: CompanyModel): Promise<CompanyModel | null> {
+    const saveCompany = await Company.findOneAndUpdate(
       {
-        _id: new mongoose.mongo.ObjectId(company.id),
+        _id: company.id,
       },
       {
         $set: {

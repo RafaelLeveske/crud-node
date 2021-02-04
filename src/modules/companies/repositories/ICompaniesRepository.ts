@@ -7,5 +7,5 @@ export default interface ICompaniesRepository {
   findByCNPJ(cnpj: string): Promise<CompanyModel | null | undefined>;
   findByName(name: string): Promise<CompanyModel | null | undefined>;
   create(data: ICreateCompanyDTO): Promise<CompanyModel>;
-  save(company: CompanyModel): Promise<CompanyModel>;
+  save(company: CompanyModel): Promise<CompanyModel | null>;
 }
