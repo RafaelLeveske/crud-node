@@ -4,14 +4,16 @@ import CreateProductService from '../../../services/CreateProductService';
 
 export default class ProductsController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name } = request.body;
+    const { name, company_id } = request.body;
 
     const createProduct = container.resolve(CreateProductService);
 
     const product = await createProduct.execute({
       name,
-      user_id: request.user.id,
+      company_id,
     });
+
+    console.log(product);
 
     return response.json(product);
   }

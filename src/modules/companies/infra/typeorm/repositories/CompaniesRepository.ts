@@ -1,10 +1,13 @@
 import mongoose from 'mongoose';
 import ICreateCompanyDTO from '@modules/companies/dtos/ICreateCompanyDTO';
 import ICompaniesRepository from '@modules/companies/repositories/ICompaniesRepository';
+import { ObjectID } from 'mongodb';
 import Company, { CompanyModel } from '../schemas/Company';
 
 class CompaniesRepository implements ICompaniesRepository {
-  public async findById(id: string): Promise<CompanyModel | null> {
+  public async findById(
+    id: ObjectID | string,
+  ): Promise<CompanyModel | null | undefined> {
     const company = await Company.findById(id).populate('products');
 
     return company;
