@@ -1,5 +1,5 @@
 import ICreateProductDTO from '../dtos/ICreateProductDTO';
-import { ProductModel } from '../infra/typeorm/schemas/Product';
+import { ProductModel } from '../infra/mongoose/schemas/Product';
 
 interface IFindProducts {
   id: string;

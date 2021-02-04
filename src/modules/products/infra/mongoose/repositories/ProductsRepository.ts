@@ -1,4 +1,4 @@
-import Company from '@modules/companies/infra/typeorm/schemas/Company';
+import Company from '@modules/companies/infra/mongoose/schemas/Company';
 import ICreateProductDTO from '@modules/products/dtos/ICreateProductDTO';
 import IProductsRepository from '@modules/products/repositories/IProductsRepository';
 import Product, { ProductModel } from '../schemas/Product';

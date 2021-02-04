@@ -5,7 +5,7 @@ import { inject, injectable } from 'tsyringe';
 import { ObjectID } from 'mongodb';
 import IUsersRepository from '../repositories/IUsersRepository';
 
-import { UserModel } from '../infra/typeorm/schemas/User';
+import { UserModel } from '../infra/mongoose/schemas/User';
 
 interface IRequest {
   user_id: ObjectID | string;

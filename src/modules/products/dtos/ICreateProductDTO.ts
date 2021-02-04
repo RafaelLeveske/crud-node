@@ -1,4 +1,4 @@
-import { CompanyModel } from '@modules/companies/infra/typeorm/schemas/Company';
+import { CompanyModel } from '@modules/companies/infra/mongoose/schemas/Company';
 
 export default interface ICreateProductDTO {
   name: string;

@@ -1,5 +1,5 @@
-import { ProductModel } from '@modules/products/infra/typeorm/schemas/Product';
-import { UserModel } from '@modules/users/infra/typeorm/schemas/User';
+import { ProductModel } from '@modules/products/infra/mongoose/schemas/Product';
+import { UserModel } from '@modules/users/infra/mongoose/schemas/User';
 import mongoose, { Schema } from 'mongoose';
 
 export type CompanyModel = mongoose.Document & {

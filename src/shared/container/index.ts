@@ -3,11 +3,11 @@ import { container } from 'tsyringe';
 import '@modules/users/providers';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
-import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository';
-import CompaniesRepository from '@modules/companies/infra/typeorm/repositories/CompaniesRepository';
+import UsersRepository from '@modules/users/infra/mongoose/repositories/UsersRepository';
+import CompaniesRepository from '@modules/companies/infra/mongoose/repositories/CompaniesRepository';
 import IProductsRepository from '@modules/products/repositories/IProductsRepository';
 import ICompaniesRepository from '../../modules/companies/repositories/ICompaniesRepository';
-import ProductsRepository from '../../modules/products/infra/typeorm/repositories/ProductsRepository';
+import ProductsRepository from '../../modules/products/infra/mongoose/repositories/ProductsRepository';
 
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',

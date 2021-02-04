@@ -1,6 +1,6 @@
 import { ObjectID } from 'mongodb';
 import ICreateUserDTO from '../dtos/ICreateUserDTO';
-import { UserModel } from '../infra/typeorm/schemas/User';
+import { UserModel } from '../infra/mongoose/schemas/User';
 
 export default interface IUsersRepository {
   findById(id: ObjectID | string): Promise<UserModel | null | undefined>;

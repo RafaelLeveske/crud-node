@@ -1,7 +1,7 @@
 import { ObjectID } from 'mongodb';
 import Product, {
   ProductModel,
-} from '@modules/products/infra/typeorm/schemas/Product';
+} from '@modules/products/infra/mongoose/schemas/Product';
 import ICreateProductDTO from '@modules/products/dtos/ICreateProductDTO';
 import AppError from '@shared/errors/AppError';
 import IProductsRepository from '../IProductsRepository';

@@ -4,7 +4,7 @@ import { injectable, inject } from 'tsyringe';
 import AppError from '@shared/errors/AppError';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import ICompaniesRepository from '../repositories/ICompaniesRepository';
-import { CompanyModel } from '../infra/typeorm/schemas/Company';
+import { CompanyModel } from '../infra/mongoose/schemas/Company';
 
 interface IRequest {
   name: string;

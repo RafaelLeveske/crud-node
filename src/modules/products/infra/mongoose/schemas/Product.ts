@@ -1,4 +1,4 @@
-import { CompanyModel } from '@modules/companies/infra/typeorm/schemas/Company';
+import { CompanyModel } from '@modules/companies/infra/mongoose/schemas/Company';
 import mongoose, { Schema } from 'mongoose';
 
 export type ProductModel = mongoose.Document & {

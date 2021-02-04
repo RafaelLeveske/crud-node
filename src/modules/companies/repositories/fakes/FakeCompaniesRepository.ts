@@ -1,7 +1,7 @@
 import { ObjectID } from 'mongodb';
 import ICreateCompanyDTO from '@modules/companies/dtos/ICreateCompanyDTO';
 import ICompaniesRepository from '../ICompaniesRepository';
-import Company, { CompanyModel } from '../../infra/typeorm/schemas/Company';
+import Company, { CompanyModel } from '../../infra/mongoose/schemas/Company';
 
 class FakeCompaniesRepository implements ICompaniesRepository {
   private companies: CompanyModel[] = [];

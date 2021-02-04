@@ -1,4 +1,4 @@
-import { UserModel } from '@modules/users/infra/typeorm/schemas/User';
+import { UserModel } from '@modules/users/infra/mongoose/schemas/User';
 
 export default interface ICreateCompanyDTO {
   name: string;

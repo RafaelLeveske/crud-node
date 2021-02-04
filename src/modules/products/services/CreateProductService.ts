@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import ICompaniesRepository from '@modules/companies/repositories/ICompaniesRepository';
 import AppError from '@shared/errors/AppError';
 import { injectable, inject } from 'tsyringe';
-import { ProductModel } from '../infra/typeorm/schemas/Product';
+import { ProductModel } from '../infra/mongoose/schemas/Product';
 import IProductsRepository from '../repositories/IProductsRepository';
 
 interface IRequest {

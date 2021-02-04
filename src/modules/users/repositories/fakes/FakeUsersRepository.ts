@@ -1,7 +1,7 @@
 import { ObjectID } from 'mongodb';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO';
-import User, { UserModel } from '../../infra/typeorm/schemas/User';
+import User, { UserModel } from '../../infra/mongoose/schemas/User';
 
 class FakeUsersRepository implements IUsersRepository {
   private users: UserModel[] = [];
