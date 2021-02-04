@@ -1,29 +1,17 @@
-import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
-import CreateUserService from '@modules/users/services/CreateUserService';
 import AppError from '@shared/errors/AppError';
 import FakeCompaniesRepository from '../repositories/fakes/FakeCompaniesRepository';
-import CreateCompanyService from './CreateCompanyService';
 import ShowCompanyProfileService from './ShowCompanyProfileService';
 
 let fakeUsersRepository: FakeUsersRepository;
-let fakeHashProvider: FakeHashProvider;
 let fakeCompaniesRepository: FakeCompaniesRepository;
-let createUser: CreateUserService;
-let createCompany: CreateCompanyService;
 let showCompanyProfile: ShowCompanyProfileService;
 
 describe('ShowCompanyProfile', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
-    fakeHashProvider = new FakeHashProvider();
     fakeCompaniesRepository = new FakeCompaniesRepository();
 
-    createUser = new CreateUserService(fakeUsersRepository, fakeHashProvider);
-    createCompany = new CreateCompanyService(
-      fakeUsersRepository,
-      fakeCompaniesRepository,
-    );
     showCompanyProfile = new ShowCompanyProfileService(fakeCompaniesRepository);
   });
 
