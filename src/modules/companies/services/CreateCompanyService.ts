@@ -33,6 +33,11 @@ class CreateCompanyService {
       throw new AppError('User does not exists');
     }
 
+    const checkCompanyExists = await this.companiesRepository.findByCNPJ(cnpj);
+    if (checkCompanyExists) {
+      throw new AppError('CNPJ already used');
+    }
+
     const company = await this.companiesRepository.create({
       name,
       cnpj,

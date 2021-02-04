@@ -35,6 +35,28 @@ describe('CreateCompany', () => {
     expect(company).toHaveProperty('products');
   });
 
+  it('should not be able to create a new company with same CNPJ from another', async () => {
+    const user = await fakeUsersRepository.create({
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      password: '123456',
+    });
+
+    await createCompany.execute({
+      name: 'Doe Company',
+      cnpj: '00099900099900',
+      user_id: user.id,
+    });
+
+    await expect(
+      createCompany.execute({
+        name: 'Doe Company',
+        cnpj: '00099900099900',
+        user_id: user.id,
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
   it('should not be able to create a new company from a non existing user', async () => {
     await expect(
       createCompany.execute({
