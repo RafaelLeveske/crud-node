@@ -21,6 +21,14 @@ class CompaniesRepository implements ICompaniesRepository {
     return company;
   }
 
+  public async findByName(
+    name: string,
+  ): Promise<CompanyModel | null | undefined> {
+    const company = await Company.findOne({ name });
+
+    return company;
+  }
+
   public async create(companyData: ICreateCompanyDTO): Promise<CompanyModel> {
     const company = await Company.create(companyData);
 
