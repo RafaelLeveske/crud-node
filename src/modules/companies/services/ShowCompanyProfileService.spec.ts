@@ -28,16 +28,16 @@ describe('ShowCompanyProfile', () => {
   });
 
   it('should be able to show the company profile', async () => {
-    const user = await createUser.execute({
+    const user = await fakeUsersRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
     });
 
-    const company = await createCompany.execute({
+    const company = await fakeCompaniesRepository.create({
       name: 'Doe Company',
       cnpj: '00099900099900',
-      user_id: user.id,
+      user: user.id,
     });
 
     const companyProfile = await showCompanyProfile.execute({
@@ -48,10 +48,10 @@ describe('ShowCompanyProfile', () => {
     expect(companyProfile.cnpj).toBe('00099900099900');
   });
 
-  it('should not be able to show the profile of a non-existing user', async () => {
+  it('should not be able to show the company profile from a non-existing company', async () => {
     expect(
       showCompanyProfile.execute({
-        company_id: Object(22222),
+        company_id: 'non-existing-id',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
