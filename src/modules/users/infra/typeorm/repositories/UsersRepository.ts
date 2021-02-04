@@ -1,5 +1,6 @@
+import 'reflect-metadata';
+
 import { ObjectID } from 'mongodb';
-import mongoose from 'mongoose';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import User, { UserModel } from '../schemas/User';
@@ -29,10 +30,10 @@ class UsersRepository implements IUsersRepository {
     return user;
   }
 
-  public async save(user: UserModel): Promise<UserModel> {
-    return User.updateOne(
+  public async save(user: UserModel): Promise<UserModel | null> {
+    const saveUser = await User.findOneAndUpdate(
       {
-        _id: new mongoose.mongo.ObjectId(user.id),
+        _id: user.id,
       },
       {
         $set: {
@@ -42,6 +43,8 @@ class UsersRepository implements IUsersRepository {
         },
       },
     );
+
+    return saveUser;
   }
 }
 

@@ -1,8 +1,6 @@
 import { ObjectID } from 'mongodb';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO';
-
-import AppError from '@shared/errors/AppError';
 import User, { UserModel } from '../../infra/typeorm/schemas/User';
 
 class FakeUsersRepository implements IUsersRepository {
@@ -13,19 +11,13 @@ class FakeUsersRepository implements IUsersRepository {
   ): Promise<UserModel | null | undefined> {
     const findUser = this.users.find(user => user.id === id);
 
-    if (!findUser) {
-      throw new AppError('User does not exists');
-    }
-
     return findUser;
   }
 
-  public async findByEmail(email: string): Promise<UserModel | null> {
+  public async findByEmail(
+    email: string,
+  ): Promise<UserModel | null | undefined> {
     const findUser = this.users.find(user => user.email === email);
-
-    if (!findUser) {
-      throw new AppError('User does not exists');
-    }
 
     return findUser;
   }
@@ -40,7 +32,7 @@ class FakeUsersRepository implements IUsersRepository {
     return user;
   }
 
-  public async save(user: UserModel): Promise<UserModel> {
+  public async save(user: UserModel): Promise<UserModel | null> {
     const findIndex = this.users.findIndex(findUser => findUser.id === user.id);
 
     this.users[findIndex] = user;
