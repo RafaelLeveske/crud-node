@@ -5,8 +5,8 @@ import sessionsRouter from '@modules/users/infra/http/routes/sessions.routes';
 import profileRouter from '@modules/users/infra/http/routes/profile.routes';
 import companiesRouter from '@modules/companies/infra/http/routes/companies.routes';
 import productsRouter from '@modules/products/infra/http/routes/products.routes';
-import companyProfileRouter from '@modules/companies/infra/http/routes/companyProfile.routes';
 import departmentsRouter from '@modules/departments/infra/http/routes/departments.routes';
+import companyProfileRouter from '@modules/companies/infra/http/routes/companies.profile.routes';
 
 const routes = Router();
 
