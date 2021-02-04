@@ -14,8 +14,6 @@ export default class ProductsController {
       company_id: String(company_id),
     });
 
-    console.log(product);
-
     return response.json(product);
   }
 }

@@ -40,6 +40,7 @@ describe('CreateProduct', () => {
     });
 
     expect(product).toHaveProperty('id');
+    expect(product).toHaveProperty('departments');
   });
 
   it('should not be able to create a new product from a non existing company', async () => {

@@ -13,6 +13,16 @@ interface IFindProducts {
 class FakeProductsRepository implements IProductsRepository {
   private products: ProductModel[] = [];
 
+  public async findById(
+    id: ObjectID | string,
+  ): Promise<ProductModel | null | undefined> {
+    const findProduct = this.products
+      .find(product => product.id === id)
+      ?.populate('departments');
+
+    return findProduct;
+  }
+
   public async create({
     name,
     company,

@@ -1,6 +1,7 @@
 import Company from '@modules/companies/infra/mongoose/schemas/Company';
 import ICreateProductDTO from '@modules/products/dtos/ICreateProductDTO';
 import IProductsRepository from '@modules/products/repositories/IProductsRepository';
+import { ObjectID } from 'mongodb';
 import Product, { ProductModel } from '../schemas/Product';
 
 interface IFindProducts {
@@ -8,6 +9,14 @@ interface IFindProducts {
 }
 
 class ProductsRepository implements IProductsRepository {
+  public async findById(
+    id: ObjectID | string,
+  ): Promise<ProductModel | null | undefined> {
+    const product = await Product.findById(id).populate('departments');
+
+    return product;
+  }
+
   public async create({
     name,
     company,
