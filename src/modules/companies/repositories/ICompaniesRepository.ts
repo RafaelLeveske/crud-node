@@ -1,8 +1,9 @@
+import { ObjectID } from 'mongodb';
 import ICreateCompanyDTO from '../dtos/ICreateCompanyDTO';
-import Company from '../infra/typeorm/schemas/Company';
+import { CompanyModel } from '../infra/mongoose/schemas/Company';
 
 export default interface ICompaniesRepository {
-  create(data: ICreateCompanyDTO): Promise<Company>;
-  findById(id: string): Promise<Company | undefined>;
-  save(company: Company): Promise<Company>;
+  create(data: ICreateCompanyDTO): Promise<CompanyModel>;
+  findById(id: ObjectID | string): Promise<CompanyModel | null | undefined>;
+  save(company: CompanyModel): Promise<CompanyModel>;
 }

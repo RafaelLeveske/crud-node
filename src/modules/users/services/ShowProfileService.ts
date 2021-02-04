@@ -1,9 +1,11 @@
+import 'reflect-metadata';
+
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { ObjectID } from 'mongodb';
 import IUsersRepository from '../repositories/IUsersRepository';
 
-import User from '../infra/typeorm/schemas/User';
+import { UserModel } from '../infra/mongoose/schemas/User';
 
 interface IRequest {
   user_id: ObjectID | string;
@@ -16,7 +18,7 @@ class ShowProfileService {
     private usersRepository: IUsersRepository,
   ) {}
 
-  public async execute({ user_id }: IRequest): Promise<User> {
+  public async execute({ user_id }: IRequest): Promise<UserModel> {
     const user = await this.usersRepository.findById(user_id);
 
     if (!user) {

@@ -1,4 +1,6 @@
-export default interface ICreateNotificationDTO {
+import { CompanyModel } from '@modules/companies/infra/mongoose/schemas/Company';
+
+export default interface ICreateProductDTO {
   name: string;
-  recipient_id: string;
+  company: CompanyModel;
 }

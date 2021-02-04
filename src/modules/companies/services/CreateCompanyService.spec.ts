@@ -1,23 +1,16 @@
 import AppError from '@shared/errors/AppError';
-import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
 import FakeUsersRepository from '../../users/repositories/fakes/FakeUsersRepository';
 import FakeCompaniesRepository from '../repositories/fakes/FakeCompaniesRepository';
-import CreateUserService from '../../users/services/CreateUserService';
 import CreateCompanyService from './CreateCompanyService';
 
 let fakeUsersRepository: FakeUsersRepository;
 let fakeCompaniesRepository: FakeCompaniesRepository;
-let fakeHashProvider: FakeHashProvider;
-let createUser: CreateUserService;
 let createCompany: CreateCompanyService;
 
 describe('CreateCompany', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
-    fakeHashProvider = new FakeHashProvider();
     fakeCompaniesRepository = new FakeCompaniesRepository();
-
-    createUser = new CreateUserService(fakeUsersRepository, fakeHashProvider);
 
     createCompany = new CreateCompanyService(
       fakeUsersRepository,
@@ -26,7 +19,7 @@ describe('CreateCompany', () => {
   });
 
   it('should be able to create a new company', async () => {
-    const user = await createUser.execute({
+    const user = await fakeUsersRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
@@ -35,10 +28,11 @@ describe('CreateCompany', () => {
     const company = await createCompany.execute({
       name: 'Doe Company',
       cnpj: '00099900099900',
-      user_id: Object(user.id),
+      user_id: user.id,
     });
 
     expect(company).toHaveProperty('id');
+    expect(company).toHaveProperty('products');
   });
 
   it('should not be able to create a new company from a non existing user', async () => {
@@ -46,7 +40,7 @@ describe('CreateCompany', () => {
       createCompany.execute({
         name: 'Doe Company',
         cnpj: '00099900099909',
-        user_id: Object(1222),
+        user_id: 'non_user_id',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });

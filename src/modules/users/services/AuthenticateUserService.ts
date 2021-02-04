@@ -1,10 +1,12 @@
+import 'reflect-metadata';
+
 import { sign } from 'jsonwebtoken';
 import authConfig from '@config/auth';
 import { injectable, inject } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 
-import User from '../infra/typeorm/schemas/User';
+import { UserModel } from '../infra/mongoose/schemas/User';
 import IUsersRepository from '../repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
@@ -14,7 +16,7 @@ interface IRequest {
 }
 
 interface IResponse {
-  user: User;
+  user: UserModel;
   token: string;
 }
 

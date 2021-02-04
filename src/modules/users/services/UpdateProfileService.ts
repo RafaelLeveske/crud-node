@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 import { injectable, inject } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
@@ -5,7 +7,7 @@ import { ObjectID } from 'typeorm';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 import IUsersRepository from '../repositories/IUsersRepository';
 
-import User from '../infra/typeorm/schemas/User';
+import { UserModel } from '../infra/mongoose/schemas/User';
 
 interface IRequest {
   user_id: ObjectID | string;
@@ -31,7 +33,7 @@ class UpdateProfileService {
     email,
     old_password,
     password,
-  }: IRequest): Promise<User> {
+  }: IRequest): Promise<UserModel | null> {
     const user = await this.usersRepository.findById(user_id);
 
     if (!user) {

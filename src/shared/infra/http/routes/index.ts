@@ -6,6 +6,7 @@ import profileRouter from '@modules/users/infra/http/routes/profile.routes';
 import companiesRouter from '@modules/companies/infra/http/routes/companies.routes';
 import productsRouter from '@modules/products/infra/http/routes/products.routes';
 import companyProfileRouter from '@modules/companies/infra/http/routes/companyProfile.routes';
+import departmentsRouter from '@modules/departments/infra/http/routes/departments.routes';
 
 const routes = Router();
 
@@ -13,7 +14,8 @@ routes.use('/users', usersRouter);
 routes.use('/sessions', sessionsRouter);
 routes.use('/profile', profileRouter);
 routes.use('/companies', companiesRouter);
+routes.use('/company-profile', companyProfileRouter);
 routes.use('/products', productsRouter);
-routes.use('/company-profile/:id', companyProfileRouter);
+routes.use('/departments', departmentsRouter);
 
 export default routes;
