@@ -24,6 +24,14 @@ class FakeCompaniesRepository implements ICompaniesRepository {
     return findCompany;
   }
 
+  public async findByName(
+    name: string,
+  ): Promise<CompanyModel | null | undefined> {
+    const findCompany = this.companies.find(company => company.name === name);
+
+    return findCompany;
+  }
+
   public async create({
     name,
     cnpj,
