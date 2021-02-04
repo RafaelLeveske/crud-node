@@ -9,16 +9,16 @@ export type ProductModel = mongoose.Document & {
 };
 
 const productSchema: Schema = new Schema({
-  company: {
-    type: Schema.Types.ObjectId,
-    ref: 'Company',
-  },
   name: {
     type: String,
   },
   created_at: {
     type: Date,
     default: Date.now,
+  },
+  company: {
+    type: Schema.Types.ObjectId,
+    ref: 'Company',
   },
   updated_at: {
     type: Date,

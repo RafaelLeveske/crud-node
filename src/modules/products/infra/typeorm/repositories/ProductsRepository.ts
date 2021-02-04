@@ -1,3 +1,4 @@
+import Company from '@modules/companies/infra/typeorm/schemas/Company';
 import ICreateProductDTO from '@modules/products/dtos/ICreateProductDTO';
 import IProductsRepository from '@modules/products/repositories/IProductsRepository';
 import Product, { ProductModel } from '../schemas/Product';
@@ -7,8 +8,18 @@ interface IFindProducts {
 }
 
 class ProductsRepository implements IProductsRepository {
-  public async create(productData: ICreateProductDTO): Promise<ProductModel> {
-    const product = await Product.create(productData);
+  public async create({
+    name,
+    company,
+  }: ICreateProductDTO): Promise<ProductModel> {
+    const product = await Product.create({
+      name,
+    });
+
+    await Company.findOneAndUpdate(
+      { _id: company.id },
+      { $push: { products: product.id } },
+    );
 
     return product;
   }

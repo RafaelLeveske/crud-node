@@ -14,6 +14,6 @@ routes.use('/sessions', sessionsRouter);
 routes.use('/profile', profileRouter);
 routes.use('/companies', companiesRouter);
 routes.use('/products', productsRouter);
-routes.use('/company-profile/:id', companyProfileRouter);
+routes.use('/company-profile', companyProfileRouter);
 
 export default routes;

@@ -2,9 +2,10 @@ import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import ICompaniesRepository from '@modules/companies/repositories/ICompaniesRepository';
 import { CompanyModel } from '@modules/companies/infra/typeorm/schemas/Company';
+import { ObjectID } from 'mongodb';
 
 interface IRequest {
-  company_id: string;
+  company_id: ObjectID | string;
 }
 
 @injectable()

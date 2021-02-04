@@ -12,6 +12,13 @@ export type CompanyModel = mongoose.Document & {
 };
 
 const companySchema: Schema = new Schema({
+  name: {
+    type: String,
+  },
+  cnpj: {
+    type: String,
+    unique: true,
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -22,13 +29,6 @@ const companySchema: Schema = new Schema({
       ref: 'Product',
     },
   ],
-  name: {
-    type: String,
-  },
-  cnpj: {
-    type: String,
-    unique: true,
-  },
   created_at: {
     type: Date,
     default: Date.now,
