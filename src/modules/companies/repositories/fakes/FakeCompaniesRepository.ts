@@ -51,7 +51,7 @@ class FakeCompaniesRepository implements ICompaniesRepository {
     return company;
   }
 
-  public async save(company: CompanyModel): Promise<CompanyModel> {
+  public async save(company: CompanyModel): Promise<CompanyModel | null> {
     const findIndex = this.companies.findIndex(
       findCompany => findCompany.id === company.id,
     );
