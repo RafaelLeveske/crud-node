@@ -1,3 +1,4 @@
+import DestroyProductService from '@modules/products/services/DestroyProductService';
 import ShowProductProfileService from '@modules/products/services/ShowProductProfileService';
 import UpdateProductService from '@modules/products/services/UpdateProductService';
 import { Request, Response } from 'express';
@@ -30,15 +31,15 @@ export default class ProductProfilecontroller {
     return response.json(product);
   }
 
-  // public async delete(request: Request, response: Response): Promise<Response> {
-  //   const { company_id } = request.query;
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { product_id } = request.query;
 
-  //   const deleteCompany = container.resolve(DestroyCompanyService);
+    const deleteProduct = container.resolve(DestroyProductService);
 
-  //   await deleteCompany.execute({
-  //     company_id: String(company_id),
-  //   });
+    await deleteProduct.execute({
+      product_id: String(product_id),
+    });
 
-  //   return response.status(200).send();
-  // }
+    return response.status(200).send();
+  }
 }
