@@ -54,6 +54,16 @@ class FakeProductsRepository implements IProductsRepository {
     });
     return AllIdsFromProductsList;
   }
+
+  public async save(product: ProductModel): Promise<ProductModel | null> {
+    const findIndex = this.products.findIndex(
+      findProduct => findProduct.id === product.id,
+    );
+
+    this.products[findIndex] = product;
+
+    return product;
+  }
 }
 
 export default FakeProductsRepository;
