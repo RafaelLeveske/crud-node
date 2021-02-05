@@ -64,6 +64,18 @@ class FakeProductsRepository implements IProductsRepository {
 
     return product;
   }
+
+  public async destroy(
+    product: ProductModel,
+  ): Promise<ProductModel | null | undefined> {
+    const findProductToDestroy = this.products.find(findProduct => {
+      const deleteProduct = findProduct.id === product.id;
+
+      return deleteProduct;
+    });
+
+    return findProductToDestroy;
+  }
 }
 
 export default FakeProductsRepository;

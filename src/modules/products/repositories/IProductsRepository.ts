@@ -11,4 +11,5 @@ export default interface IProductsRepository {
   findById(id: ObjectID | string): Promise<ProductModel | null | undefined>;
   findAllById(products: IFindProducts[]): Promise<ProductModel[]>;
   save(product: ProductModel): Promise<ProductModel | null>;
+  destroy(product: ProductModel): Promise<ProductModel | null | undefined>;
 }
