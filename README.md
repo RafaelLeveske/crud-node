@@ -30,7 +30,7 @@ Abra o seu terminal para iniciar.
 $ git clone https://github.com/RafaelLeveske/crud-node.git
 
 # Installe as dependências
-$ yarn install
+$ yarn
 
 # Crie uma instância mongoDB usando docker
 $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
