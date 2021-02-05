@@ -32,11 +32,15 @@ $ yarn install
 # Execute os testes
 $ yarn test
 
-# Crie a database
-Crie as databases com o mesmo nome do arquivo ormconfig.json.
-
 # Crie uma instância mongoDB usando docker
 $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
+
+# Configure as variáveis de ambiente
+- Copie o conteúdo do arquivo .env.example, e cole no arquivo .env na raiz do seu projeto.
+
+# Crie a database
+- Crie a URI da sua conexão com o MongoDB e a insira no arquivo .env.
+- Exemplo: mongodb://localhost:27017/mongo-crud-node
 
 # Inicie o servidor
 $ yarn dev:server
