@@ -39,7 +39,7 @@ describe('UpdateCompany', () => {
   });
 
   it('should not be able to update the company of a non-existing company', async () => {
-    expect(
+    await expect(
       updateCompany.execute({
         name: 'Doe Companion',
         cnpj: '00099900099902',

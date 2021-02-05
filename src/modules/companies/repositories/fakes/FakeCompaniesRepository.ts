@@ -60,6 +60,18 @@ class FakeCompaniesRepository implements ICompaniesRepository {
 
     return company;
   }
+
+  public async destroy(
+    company: CompanyModel,
+  ): Promise<CompanyModel | null | undefined> {
+    const findCompanyToDestroy = this.companies.find(findCompany => {
+      const deleteCompany = findCompany.id === company.id;
+
+      return deleteCompany;
+    });
+
+    return findCompanyToDestroy;
+  }
 }
 
 export default FakeCompaniesRepository;

@@ -21,4 +21,6 @@ companyProfileRouter.put(
   companyProfileController.update,
 );
 
+companyProfileRouter.delete('/', companyProfileController.delete);
+
 export default companyProfileRouter;
