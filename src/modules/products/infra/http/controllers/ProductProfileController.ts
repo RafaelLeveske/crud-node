@@ -1,19 +1,20 @@
+import ShowProductProfileService from '@modules/products/services/ShowProductProfileService';
 import UpdateProductService from '@modules/products/services/UpdateProductService';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 export default class ProductProfilecontroller {
-  // public async show(request: Request, response: Response): Promise<Response> {
-  //   const { company_id } = request.query;
+  public async show(request: Request, response: Response): Promise<Response> {
+    const { product_id } = request.query;
 
-  //   const showCompanyProfile = container.resolve(ShowCompanyProfileService);
+    const showProductProfile = container.resolve(ShowProductProfileService);
 
-  //   const company = await showCompanyProfile.execute({
-  //     company_id: String(company_id),
-  //   });
+    const company = await showProductProfile.execute({
+      product_id: String(product_id),
+    });
 
-  //   return response.json(company);
-  // }
+    return response.json(company);
+  }
 
   public async update(request: Request, response: Response): Promise<Response> {
     const { product_id } = request.query;

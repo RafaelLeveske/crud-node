@@ -7,7 +7,7 @@ import companiesRouter from '@modules/companies/infra/http/routes/companies.rout
 import productsRouter from '@modules/products/infra/http/routes/products.routes';
 import departmentsRouter from '@modules/departments/infra/http/routes/departments.routes';
 import companyProfileRouter from '@modules/companies/infra/http/routes/companies.profile.routes';
-import productProfileRouter from '@modules/products/infra/http/routes/products.profile';
+import productProfileRouter from '@modules/products/infra/http/routes/products.profile.routes';
 
 const routes = Router();
 
