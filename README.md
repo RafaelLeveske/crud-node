@@ -61,8 +61,6 @@ $ yarn dev:server
 - [Prettier](https://prettier.io/) - An opinionated code formatter
 - [EditorConfig](https://editorconfig.org/) - Helps maintain consistent coding styles for multiple developers
 - [Jest](https://jestjs.io/) - JavaScript Testing Framework with a focus on simplicity.
-- [uuid v4](https://github.com/thenativeweb/uuidv4/) - Creates v4 UUIDs
-
 
 ## ✍️ Author <a name = "authors"></a>
 
