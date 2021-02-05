@@ -23,7 +23,6 @@
     "reflect-metadata": "^0.1.13",
     "ts-jest": "^26.4.4",
     "tsyringe": "^4.4.0",
-    "typeorm": "^0.2.29",
     "uuidv4": "^6.2.6"
   },
   "devDependencies": {
