@@ -19,6 +19,10 @@ productProfileRouter.put(
   companyProfileController.update,
 );
 
-// productProfileRouter.delete('/', companyProfileController.delete);
+productProfileRouter.delete(
+  '/',
+  ensureAuthenticated,
+  companyProfileController.delete,
+);
 
 export default productProfileRouter;

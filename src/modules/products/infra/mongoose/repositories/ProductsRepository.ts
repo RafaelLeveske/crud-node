@@ -52,6 +52,14 @@ class ProductsRepository implements IProductsRepository {
     );
     return saveProduct;
   }
+
+  public async destroy(
+    product: ProductModel,
+  ): Promise<ProductModel | null | undefined> {
+    const destroyProduct = await Product.findByIdAndRemove(product.id);
+
+    return destroyProduct;
+  }
 }
 
 export default ProductsRepository;
