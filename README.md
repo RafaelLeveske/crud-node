@@ -40,9 +40,6 @@ Crie as databases com o mesmo nome do arquivo ormconfig.json.
 # Crie uma instância mongoDB usando docker
 $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 
-# Crie uma instância redis usando docker
-$ docker run --name crud-node-redis -p 6379:6379 -d -t redis:alpine
-
 # Inicie o servidor
 $ yarn dev:server
 ```
@@ -50,12 +47,18 @@ $ yarn dev:server
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [Node](https://nodejs.org/en/) - Javascript Runtime Environment.
+- [TypeScript](https://www.typescriptlang.org/) - Open-source language which builds on JavaScript
 - [Express](https://expressjs.com/pt-br/) - Framework Web.
-- [TypeORM](https://typeorm.io/#/) - ORM for Typescript.
+- [Mongoose](https://mongoosejs.com/) - Mongodb object modeling for node.js.
 - [MongoDB](https://www.mongodb.com/2) - A fully managed NO-SQL database service.
 - [JWT](https://jwt.io/) - JSON Web Token.
+- [Eslint](https://eslint.org/) - Find and fix problems in your JavaScript code
+- [Prettier](https://prettier.io/) - An opinionated code formatter
+- [EditorConfig](https://editorconfig.org/) - Helps maintain consistent coding styles for multiple developers
+- [Jest](https://jestjs.io/) - JavaScript Testing Framework with a focus on simplicity.
+- [uuid v4](https://github.com/thenativeweb/uuidv4/) - Creates v4 UUIDs
+
 
 ## ✍️ Author <a name = "authors"></a>
 
-- [@RafaelLeveske](https://github.com/RafaelLeveske)
-- [Linkedin](https://www.linkedin.com/in/rafael-vieira-506331182/)
+Made by Rafael Vieira 👋 [See my linkedin](https://www.linkedin.com/in/rafael-vieira-506331182/)
