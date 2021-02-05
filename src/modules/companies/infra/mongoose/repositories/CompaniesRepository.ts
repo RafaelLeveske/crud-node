@@ -48,6 +48,14 @@ class CompaniesRepository implements ICompaniesRepository {
     );
     return saveCompany;
   }
+
+  public async destroy(
+    company: CompanyModel,
+  ): Promise<CompanyModel | null | undefined> {
+    const destroyCompany = await Company.findByIdAndRemove(company.id);
+
+    return destroyCompany;
+  }
 }
 
 export default CompaniesRepository;
