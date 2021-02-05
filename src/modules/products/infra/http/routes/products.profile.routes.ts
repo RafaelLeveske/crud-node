@@ -6,12 +6,11 @@ import ProductProfileController from '../controllers/ProductProfileController';
 const productProfileRouter = Router();
 const companyProfileController = new ProductProfileController();
 
-productProfileRouter.use(ensureAuthenticated);
-
-// productProfileRouter.get('/', companyProfileController.show);
+productProfileRouter.get('/', companyProfileController.show);
 
 productProfileRouter.put(
   '/',
+  ensureAuthenticated,
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().max(50).required(),
