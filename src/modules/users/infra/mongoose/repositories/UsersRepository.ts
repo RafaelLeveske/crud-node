@@ -1,17 +1,13 @@
-import 'reflect-metadata';
-
 import { ObjectID } from 'mongodb';
-
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import User, { UserModel } from '../schemas/User';
-
 import ICreateUserDTO from '../../../dtos/ICreateUserDTO';
 
 class UsersRepository implements IUsersRepository {
   public async findById(
     id: ObjectID | string,
   ): Promise<UserModel | null | undefined> {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate('companies');
 
     return user;
   }

@@ -3,10 +3,10 @@ import { UserModel } from '@modules/users/infra/mongoose/schemas/User';
 import mongoose, { Schema } from 'mongoose';
 
 export type CompanyModel = mongoose.Document & {
-  user: UserModel['_id'];
-  products: ProductModel['_id'];
   name: string;
   cnpj: string;
+  user: UserModel['_id'];
+  products: ProductModel['_id'];
   created_at: Date;
   updated_at: Date;
 };

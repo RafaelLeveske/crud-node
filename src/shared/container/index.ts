@@ -1,7 +1,5 @@
 import { container } from 'tsyringe';
-
 import '@modules/users/providers';
-
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import UsersRepository from '@modules/users/infra/mongoose/repositories/UsersRepository';
 import CompaniesRepository from '@modules/companies/infra/mongoose/repositories/CompaniesRepository';

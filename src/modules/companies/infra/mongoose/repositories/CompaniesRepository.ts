@@ -1,5 +1,6 @@
 import ICreateCompanyDTO from '@modules/companies/dtos/ICreateCompanyDTO';
 import ICompaniesRepository from '@modules/companies/repositories/ICompaniesRepository';
+import User from '@modules/users/infra/mongoose/schemas/User';
 import { ObjectID } from 'mongodb';
 import Company, { CompanyModel } from '../schemas/Company';
 
@@ -28,8 +29,20 @@ class CompaniesRepository implements ICompaniesRepository {
     return company;
   }
 
-  public async create(companyData: ICreateCompanyDTO): Promise<CompanyModel> {
-    const company = await Company.create(companyData);
+  public async create({
+    name,
+    cnpj,
+    user,
+  }: ICreateCompanyDTO): Promise<CompanyModel> {
+    const company = await Company.create({
+      name,
+      cnpj,
+    });
+
+    await User.findOneAndUpdate(
+      { _id: user.id },
+      { $push: { companies: company.id } },
+    );
 
     return company;
   }

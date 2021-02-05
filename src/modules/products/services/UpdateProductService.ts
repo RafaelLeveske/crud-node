@@ -1,8 +1,6 @@
 import 'reflect-metadata';
-
 import AppError from '@shared/errors/AppError';
 import { ObjectID } from 'mongodb';
-
 import { injectable, inject } from 'tsyringe';
 import { ProductModel } from '@modules/products/infra/mongoose/schemas/Product';
 import IProductsRepository from '../repositories/IProductsRepository';
