@@ -11,10 +11,9 @@
 
 ## 🏁 About <a name = "about"></a>
 
-- Esse projeto é destinado a cadastro e autenticação de usuários os quais poderão cadastrar suas empresas, produtos e serviços, assim como listar, editar e deletar.
+- Esse projeto é destinado a cadastro e autenticação de usuários os quais poderão cadastrar e gerenciar suas empresas, produtos e serviços, assim como listar, editar e deletar.
 
 - As empresas podem conter um ou mais produtos, assim como cada produto pode conter um ou mais serviços.
-- O usuario pode ver somente suas empresas e produtos.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 Para clonar e utilizar essa aplicação você irá precisar do [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) + [Yarn](https://yarnpkg.com/) instalados em sua máquina.
