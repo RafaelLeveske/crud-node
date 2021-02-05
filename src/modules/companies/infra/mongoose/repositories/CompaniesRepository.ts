@@ -3,6 +3,10 @@ import ICompaniesRepository from '@modules/companies/repositories/ICompaniesRepo
 import { ObjectID } from 'mongodb';
 import Company, { CompanyModel } from '../schemas/Company';
 
+interface IFindCompanies {
+  id: string;
+}
+
 class CompaniesRepository implements ICompaniesRepository {
   public async findById(
     id: ObjectID | string,
@@ -32,6 +36,14 @@ class CompaniesRepository implements ICompaniesRepository {
     const company = await Company.create(companyData);
 
     return company;
+  }
+
+  public async findAllById(
+    companies: IFindCompanies[],
+  ): Promise<CompanyModel[]> {
+    const findAllCompanies = await Company.find(companies);
+
+    return findAllCompanies;
   }
 
   public async save(company: CompanyModel): Promise<CompanyModel | null> {

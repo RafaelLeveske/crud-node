@@ -1,7 +1,12 @@
 import { ObjectID } from 'mongodb';
 import ICreateCompanyDTO from '@modules/companies/dtos/ICreateCompanyDTO';
+import AppError from '@shared/errors/AppError';
 import ICompaniesRepository from '../ICompaniesRepository';
 import Company, { CompanyModel } from '../../infra/mongoose/schemas/Company';
+
+interface IFindCompanies {
+  id: string;
+}
 
 class FakeCompaniesRepository implements ICompaniesRepository {
   private companies: CompanyModel[] = [];
@@ -49,6 +54,23 @@ class FakeCompaniesRepository implements ICompaniesRepository {
     this.companies.push(company);
 
     return company;
+  }
+
+  public async findAllById(
+    companies: IFindCompanies[],
+  ): Promise<CompanyModel[]> {
+    const AllIdsFromCompanyList = this.companies.map(companyIdFromList => {
+      const companyIds = companies.find(
+        companyId => companyId.id === companyIdFromList.id,
+      );
+
+      if (!companyIds) {
+        throw new AppError('Company id not found');
+      }
+
+      return companyIdFromList;
+    });
+    return AllIdsFromCompanyList;
   }
 
   public async save(company: CompanyModel): Promise<CompanyModel | null> {
