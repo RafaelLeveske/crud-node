@@ -1,5 +1,5 @@
 {
-  "name": "node_jwt",
+  "name": "crud-node",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

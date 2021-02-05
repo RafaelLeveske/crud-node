@@ -1,9 +1,11 @@
+import { CompanyModel } from '@modules/companies/infra/mongoose/schemas/Company';
 import mongoose, { Schema } from 'mongoose';
 
 export type UserModel = mongoose.Document & {
   name: string;
   email: string;
   password: string;
+  company: CompanyModel['_id'];
   created_at: Date;
   updated_at: Date;
 };
@@ -19,6 +21,12 @@ const userSchema: Schema = new Schema({
   password: {
     type: String,
   },
+  companies: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Company',
+    },
+  ],
   created_at: {
     type: Date,
     default: Date.now,

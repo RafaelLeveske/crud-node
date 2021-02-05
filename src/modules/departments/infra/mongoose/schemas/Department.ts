@@ -2,8 +2,8 @@ import { ProductModel } from '@modules/products/infra/mongoose/schemas/Product';
 import mongoose, { Schema } from 'mongoose';
 
 export type DepartmentModel = mongoose.Document & {
-  product: ProductModel['_id'];
   name: string;
+  product: ProductModel['_id'];
   created_at: Date;
   updated_at: Date;
 };

@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
-import { classToClass } from 'class-transformer';
 import CreateCompanyService from '@modules/companies/services/CreateCompanyService';
 
 export default class CompaniesController {
@@ -15,6 +14,6 @@ export default class CompaniesController {
       user_id: request.user.id,
     });
 
-    return response.json(classToClass(company));
+    return response.json(company);
   }
 }

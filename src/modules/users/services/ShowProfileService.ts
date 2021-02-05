@@ -1,10 +1,8 @@
 import 'reflect-metadata';
-
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { ObjectID } from 'mongodb';
 import IUsersRepository from '../repositories/IUsersRepository';
-
 import { UserModel } from '../infra/mongoose/schemas/User';
 
 interface IRequest {
