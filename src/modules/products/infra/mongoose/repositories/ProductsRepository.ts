@@ -38,6 +38,20 @@ class ProductsRepository implements IProductsRepository {
 
     return findAllProducts;
   }
+
+  public async save(product: ProductModel): Promise<ProductModel | null> {
+    const saveProduct = await Product.findOneAndUpdate(
+      {
+        _id: product.id,
+      },
+      {
+        $set: {
+          name: product.name,
+        },
+      },
+    );
+    return saveProduct;
+  }
 }
 
 export default ProductsRepository;
