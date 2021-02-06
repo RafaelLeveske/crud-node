@@ -36,8 +36,7 @@ $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 - Copie o conteúdo do arquivo .env.example, e cole em um novo arquivo .env na raiz do seu projeto.
 
 # Crie a database
-- Crie a URI da sua conexão com o MongoDB e a insira no arquivo .env.
-- Exemplo: mongodb://localhost:27017/mongo-crud-node
+- Crie o nome da sua database MongoDB no arquivo .env.
 
 # Execute os testes
 $ yarn test
