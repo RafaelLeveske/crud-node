@@ -54,14 +54,14 @@ $ yarn dev:server
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [Node](https://nodejs.org/en/) - Javascript Runtime Environment.
-- [TypeScript](https://www.typescriptlang.org/) - Open-source language which builds on JavaScript
+- [TypeScript](https://www.typescriptlang.org/) - Open-source language which builds on JavaScript.
 - [Express](https://expressjs.com/pt-br/) - Framework Web.
 - [Mongoose](https://mongoosejs.com/) - Mongodb object modeling for node.js.
 - [MongoDB](https://www.mongodb.com/2) - A fully managed NO-SQL database service.
 - [JWT](https://jwt.io/) - JSON Web Token.
-- [Eslint](https://eslint.org/) - Find and fix problems in your JavaScript code
-- [Prettier](https://prettier.io/) - An opinionated code formatter
-- [EditorConfig](https://editorconfig.org/) - Helps maintain consistent coding styles for multiple developers
+- [Eslint](https://eslint.org/) - Find and fix problems in your JavaScript code.
+- [Prettier](https://prettier.io/) - An opinionated code formatter.
+- [EditorConfig](https://editorconfig.org/) - Helps maintain consistent coding styles for multiple developers.
 - [Jest](https://jestjs.io/) - JavaScript Testing Framework with a focus on simplicity.
 - [Celebrate](https://www.npmjs.com/package/celebrate) - Express middleware.
 
