@@ -16,7 +16,7 @@
 - As empresas podem conter um ou mais produtos, assim como cada produto pode conter um ou mais serviços.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
-Para clonar e utilizar essa aplicação você irá precisar do [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) + [Yarn](https://yarnpkg.com/) instalados em sua máquina.
+Para clonar e utilizar essa aplicação você irá precisar do [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/) [Docker](https://www.docker.com/) instalados em sua máquina.
 
 Abra o seu terminal para iniciar.
 
