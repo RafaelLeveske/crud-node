@@ -1,8 +1,5 @@
 # CRUD Node
 
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=crud_node&uri=https%3A%2F%2Fraw.githubusercontent.com%2FRafaelLeveske%2Fcrud-node%2Fmaster%2FInsomnia_crud_node)
-
-
 ## 📝 Conteúdo
 
 - [About](#about)
@@ -48,6 +45,11 @@ $ yarn test
 # Inicie o servidor
 $ yarn dev:server
 ```
+
+## Para testar as rotas da aplicação acesse o link abaixo:
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=crud_node&uri=https%3A%2F%2Fraw.githubusercontent.com%2FRafaelLeveske%2Fcrud-node%2Fmaster%2FInsomnia_crud_node)
+
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
