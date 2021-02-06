@@ -33,7 +33,7 @@ $ yarn
 $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 
 # Configure as variáveis de ambiente
-- Copie o conteúdo do arquivo .env.example, e cole no arquivo .env na raiz do seu projeto.
+- Copie o conteúdo do arquivo .env.example, e cole em um novo arquivo .env na raiz do seu projeto.
 
 # Crie a database
 - Crie a URI da sua conexão com o MongoDB e a insira no arquivo .env.
