@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect(String(process.env.MONGO_DB_URL), {
+mongoose.connect(`mongodb://localhost:27017/${process.env.MONGO_DB_URL}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
