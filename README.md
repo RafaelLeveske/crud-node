@@ -63,6 +63,7 @@ $ yarn dev:server
 - [EditorConfig](https://editorconfig.org/) - Helps maintain consistent coding styles for multiple developers.
 - [Jest](https://jestjs.io/) - JavaScript Testing Framework with a focus on simplicity.
 - [Celebrate](https://www.npmjs.com/package/celebrate) - Express middleware.
+- [Lodash](https://lodash.com/) - A modern JavaScript utility library delivering modularity, performance & extras.
 
 ## ✍️ Author <a name = "authors"></a>
 
