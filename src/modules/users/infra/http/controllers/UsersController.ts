@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import _ from 'lodash';
 import CreateUserService from '@modules/users/services/CreateUserService';
 
 export default class UsersController {
@@ -14,6 +15,6 @@ export default class UsersController {
       password,
     });
 
-    return response.json(user);
+    return response.json(_.omit(user.toJSON(), ['password']));
   }
 }

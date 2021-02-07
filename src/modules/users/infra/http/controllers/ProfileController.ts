@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import _ from 'lodash';
 import ShowProfileService from '@modules/users/services/ShowProfileService';
 import UpdateProfileService from '@modules/users/services/UpdateProfileService';
 
@@ -13,8 +14,7 @@ export default class ProfileController {
       user_id,
     });
 
-    console.log(user);
-    return response.json(user);
+    return response.json(_.omit(user.toJSON(), ['password']));
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
@@ -31,6 +31,6 @@ export default class ProfileController {
       password,
     });
 
-    return response.json(user);
+    return response.json(_.omit(user?.toJSON(), ['password']));
   }
 }
