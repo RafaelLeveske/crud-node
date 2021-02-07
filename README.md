@@ -26,6 +26,9 @@ Abra o seu terminal para iniciar.
 # Clone o repositório
 $ git clone https://github.com/RafaelLeveske/crud-node.git
 
+# Acesse a pasta do projeto
+$ cd crud-node
+
 # Installe as dependências
 $ yarn
 
