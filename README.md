@@ -64,6 +64,7 @@ $ yarn dev:server
 - [Jest](https://jestjs.io/) - JavaScript Testing Framework with a focus on simplicity.
 - [Celebrate](https://www.npmjs.com/package/celebrate) - Express middleware.
 - [Lodash](https://lodash.com/) - A modern JavaScript utility library delivering modularity, performance & extras.
+- [Tsyringe](https://www.npmjs.com/package/tsyringe) - A lightweight dependency injection container for TypeScript/JavaScript for constructor injection.
 
 ## ✍️ Author <a name = "authors"></a>
 
