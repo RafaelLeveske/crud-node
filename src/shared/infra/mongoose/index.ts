@@ -1,18 +1,39 @@
 import mongoose from 'mongoose';
+import dbConfig from '@config/db';
 
-const {
-  MONGO_DB_USER,
-  MONGO_DB_PASS,
-  MONGO_DB_DATABASE_NAME,
-  MONGO_DB_HOST,
-} = process.env;
+switch (process.env.DB_DRIVER) {
+  case 'localhost':
+    mongoose.connect(dbConfig.uri.localhost, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
 
-mongoose.connect(
-  `mongodb+srv://${MONGO_DB_USER}:${MONGO_DB_PASS}@${MONGO_DB_HOST}.mongodb.net/${MONGO_DB_DATABASE_NAME}?retryWrites=true&w=majority`,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  },
-);
+    console.log(dbConfig.uri.localhost);
+    break;
+
+  case 'atlas':
+    mongoose.connect(dbConfig.uri.atlas, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
+
+    console.log(dbConfig.uri.atlas);
+
+    break;
+
+  default:
+    mongoose.connect(dbConfig.uri.localhost, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
+
+    console.log(dbConfig.uri.localhost);
+
+    break;
+}
