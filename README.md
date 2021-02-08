@@ -15,6 +15,78 @@
 
 - As empresas podem conter um ou mais produtos, assim como cada produto pode conter um ou mais serviços.
 
+- Deste modo um usuário pode ter um array empresas e essas empresas possuem um array de produtos, e esses produtos possuem um array de serviços, como o exemplo em JSON abaixo:
+
+### GET Usuários
+
+```bash
+{
+  "companies": [
+    {
+      "products": [
+        "60217a33cd587698f59646b4"
+      ],
+      "_id": "60217a2ccd587698f59646b3",
+      "name": "Empresa",
+      "cnpj": "12900011000112",
+      "created_at": "2021-02-08T17:51:40.977Z",
+      "updated_at": "2021-02-08T17:51:40.977Z",
+      "__v": 0
+    }
+  ],
+  "_id": "60217675c6d67893e2e0459c",
+  "name": "Usuário",
+  "email": "usuario@user.com",
+  "created_at": "2021-02-08T17:35:49.806Z",
+  "updated_at": "2021-02-08T17:35:49.809Z",
+  "__v": 0
+}
+```
+
+### GET Empresas
+```bash
+{
+  "products": [
+    {
+      "departments": [
+        "60217a4ccd587698f59646b5"
+      ],
+      "_id": "60217a33cd587698f59646b4",
+      "name": "produto",
+      "created_at": "2021-02-08T17:51:47.874Z",
+      "updated_at": "2021-02-08T17:51:47.874Z",
+      "__v": 0
+    }
+  ],
+  "_id": "60217a2ccd587698f59646b3",
+  "name": "Empresa",
+  "cnpj": "12900011000112",
+  "created_at": "2021-02-08T17:51:40.977Z",
+  "updated_at": "2021-02-08T17:51:40.977Z",
+  "__v": 0
+}
+```
+
+### GET Produtos
+```bash
+{
+  "departments": [
+    {
+      "_id": "60217a4ccd587698f59646b5",
+      "name": "serviço",
+      "created_at": "2021-02-08T17:52:12.513Z",
+      "updated_at": "2021-02-08T17:52:12.513Z",
+      "__v": 0
+    }
+  ],
+  "_id": "60217a33cd587698f59646b4",
+  "name": "produto",
+  "created_at": "2021-02-08T17:51:47.874Z",
+  "updated_at": "2021-02-08T17:51:47.874Z",
+  "__v": 0
+}
+```
+
 ## 🏁 Getting Started <a name = "getting_started"></a>
 Para clonar e utilizar essa aplicação você irá precisar do [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/) e [Docker](https://www.docker.com/) instalados em sua máquina.
 
