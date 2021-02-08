@@ -49,12 +49,12 @@ $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 - Caso opte por executar a aplicação localmente a unica configuração restante será MONGO_DB_DATABASE_NAME a qual você irá indicar o nome do banco do seu banco de dados.
 - Caso opte por executar a aplicação via MongoDB Atlas, indique os valores de: MONGO_DB_ATLAS_NAME a qual se refere ao nome da sua database Atlas, MONGO_DB_ATLAS_USER a qual se refere ao nome de usuário, MONGO_DB_ATLAS_PASS se refere ao password e MONGO_DB_ATLAS_CLUSTER a qual se refere ao nome do seu cluster.
 
-# Para príncipios de referencia as strings URIs de conexão Mongo na aplicação tem o seguinte modelo:
+### Para príncipios de referencia as strings URIs de conexão Mongo na aplicação tem o seguinte modelo:
 
-# localhost:
+### localhost:
 - mongodb://localhost:27017/${process.env.MONGO_DB_DATABASE_NAME}
 
-# atlas:
+### atlas:
 - mongodb+srv://${process.env.MONGO_DB_ATLAS_USER}:${process.env.MONGO_DB_ATLAS_PASS}@${process.env.MONGO_DB_ATLAS_CLUSTER}.mongodb.net/${process.env.MONGO_DB_ATLAS_NAME}?retryWrites=true&w=majority
 
 
