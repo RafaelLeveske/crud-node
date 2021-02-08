@@ -24,19 +24,19 @@
   "companies": [
     {
       "products": [
-        "602176b5c6d67893e2e0459f"
+        "60217a33cd587698f59646b4"
       ],
-      "_id": "602176a5c6d67893e2e0459e",
-      "name": "any-copmany",
-      "cnpj": "12901199383128",
-      "created_at": "2021-02-08T17:36:37.329Z",
-      "updated_at": "2021-02-08T17:36:37.329Z",
+      "_id": "60217a2ccd587698f59646b3",
+      "name": "Empresa",
+      "cnpj": "12900011000112",
+      "created_at": "2021-02-08T17:51:40.977Z",
+      "updated_at": "2021-02-08T17:51:40.977Z",
       "__v": 0
     }
   ],
   "_id": "60217675c6d67893e2e0459c",
-  "name": "Rafael",
-  "email": "rafael4@gmail.com",
+  "name": "Usuário",
+  "email": "usuario@user.com",
   "created_at": "2021-02-08T17:35:49.806Z",
   "updated_at": "2021-02-08T17:35:49.809Z",
   "__v": 0
@@ -49,22 +49,21 @@ GET Empresas
   "products": [
     {
       "departments": [
-        "602178e1cd587698f59646b2"
+        "60217a4ccd587698f59646b5"
       ],
-      "_id": "602176b5c6d67893e2e0459f",
-      "name": "product",
-      "created_at": "2021-02-08T17:36:53.951Z",
-      "updated_at": "2021-02-08T17:36:53.951Z",
+      "_id": "60217a33cd587698f59646b4",
+      "name": "produto",
+      "created_at": "2021-02-08T17:51:47.874Z",
+      "updated_at": "2021-02-08T17:51:47.874Z",
       "__v": 0
     }
   ],
-  "_id": "602176a5c6d67893e2e0459e",
-  "name": "any-copmany",
-  "cnpj": "12901199383128",
-  "created_at": "2021-02-08T17:36:37.329Z",
-  "updated_at": "2021-02-08T17:36:37.329Z",
+  "_id": "60217a2ccd587698f59646b3",
+  "name": "Empresa",
+  "cnpj": "12900011000112",
+  "created_at": "2021-02-08T17:51:40.977Z",
+  "updated_at": "2021-02-08T17:51:40.977Z",
   "__v": 0
-}
 }
 ```
 
@@ -73,17 +72,17 @@ GET Produtos
 {
   "departments": [
     {
-      "_id": "602178e1cd587698f59646b2",
-      "name": "department",
-      "created_at": "2021-02-08T17:46:09.574Z",
-      "updated_at": "2021-02-08T17:46:09.575Z",
+      "_id": "60217a4ccd587698f59646b5",
+      "name": "serviço",
+      "created_at": "2021-02-08T17:52:12.513Z",
+      "updated_at": "2021-02-08T17:52:12.513Z",
       "__v": 0
     }
   ],
-  "_id": "602176b5c6d67893e2e0459f",
-  "name": "product",
-  "created_at": "2021-02-08T17:36:53.951Z",
-  "updated_at": "2021-02-08T17:36:53.951Z",
+  "_id": "60217a33cd587698f59646b4",
+  "name": "produto",
+  "created_at": "2021-02-08T17:51:47.874Z",
+  "updated_at": "2021-02-08T17:51:47.874Z",
   "__v": 0
 }
 ```
