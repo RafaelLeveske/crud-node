@@ -38,7 +38,7 @@ $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 # Ou crie um novo cluster no MongoDB Atlas.
 
 # Configure as variáveis de ambiente
-- A primeira coisa a se fazer é copiar o conteúdo do arquivo .env.example para um novo arquivo na raiz do seu projeto chamado .env
+- A primeira coisa a se fazer é copiar o conteúdo do arquivo .env.example para um novo arquivo na raiz do seu projeto chamado .env.
 - Em seguida vamos configurar as varivaeis de ambiente relacionadas a APP CONFIGURATIONS.
 - Forneça as informações relacionadas a APP_PORT a qual se refere a porta a qual a aplicação ira rodar
 - Forneça as informações relacionadas ao APP_JWT_SECRET a qual se refere ao segredo da chave JWT a qual controla a nossa autenticação no app, a escolha do valor dessa variavel fica ao seu critério, caso o deixe vazio a aplicação irá usar um valor default como chave.
@@ -62,7 +62,7 @@ $ yarn test
 $ yarn dev:server
 ```
 
-### ATENÇÃO: As configurações de produção são totalmente orientadas para o uso com o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), por isso será necessário a criação de um cluster na mesma para a realização dos próximos passos. Portanto crie o seu cluster MongoDB Atlas e em seguida insira as informações pertinentes no arquivo .env, o qual foi explicado no passo anterior.
+## ATENÇÃO: As configurações de produção são totalmente orientadas para o uso com o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), por isso será necessário a criação de um cluster na mesma para a realização dos próximos passos. Portanto crie o seu cluster MongoDB Atlas e em seguida insira as informações pertinentes no arquivo .env, o qual foi explicado no passo anterior.
 
 ### Configurações para rodar a aplicação em produção:
 
