@@ -36,8 +36,10 @@ $ yarn
 $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 
 # Ou crie um novo cluster no MongoDB Atlas.
+```
 
-# Configure as variáveis de ambiente
+
+## Configure as variáveis de ambiente
 - A primeira coisa a se fazer é copiar o conteúdo do arquivo .env.example para um novo arquivo na raiz do seu projeto chamado .env.
 - Em seguida vamos configurar as varivaeis de ambiente relacionadas a APP CONFIGURATIONS.
 - Forneça as informações relacionadas a APP_PORT a qual se refere a porta a qual a aplicação ira rodar, por parão a aplicação usa a porta 3333.
@@ -55,6 +57,8 @@ $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 # atlas:
 - mongodb+srv://${process.env.MONGO_DB_ATLAS_USER}:${process.env.MONGO_DB_ATLAS_PASS}@${process.env.MONGO_DB_ATLAS_CLUSTER}.mongodb.net/${process.env.MONGO_DB_ATLAS_NAME}?retryWrites=true&w=majority
 
+
+```bash
 # Execute os testes
 $ yarn test
 
