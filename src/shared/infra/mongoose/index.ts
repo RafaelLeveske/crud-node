@@ -1,11 +1,34 @@
 import mongoose from 'mongoose';
+import dbConfig from '@config/db';
 
-mongoose.connect(
-  `mongodb://localhost:27017/${process.env.MONGO_DB_DATABASE_NAME}`,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  },
-);
+switch (process.env.DB_DRIVER) {
+  case 'localhost':
+    mongoose.connect(dbConfig.uri.localhost, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
+
+    break;
+
+  case 'atlas':
+    mongoose.connect(dbConfig.uri.atlas, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
+
+    break;
+
+  default:
+    mongoose.connect(dbConfig.uri.localhost, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
+
+    break;
+}

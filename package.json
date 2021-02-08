@@ -7,7 +7,8 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --no-notify src/shared/infra/http/server.ts",
     "start": "ts-node src/shared/infra/http/server.ts",
-    "test": "jest"
+    "test": "jest",
+    "prod": "node --require dotenv/config dist/shared/infra/http/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
