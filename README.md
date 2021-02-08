@@ -20,7 +20,7 @@ Para clonar e utilizar essa aplicação você irá precisar do [Git](https://git
 
 Abra o seu terminal para iniciar.
 
-### Install API
+### Configurações para rodar a aplicação em desenvolvimento:
 
 ```bash
 # Clone o repositório
@@ -35,17 +35,45 @@ $ yarn
 # Crie uma instância mongoDB usando docker
 $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 
-# Configure as variáveis de ambiente
-- Copie o conteúdo do arquivo .env.example, e cole em um novo arquivo .env na raiz do seu projeto.
+# Ou crie um novo cluster no [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 
-# Crie a database
-- Crie o nome da sua database MongoDB no arquivo .env.
+# Configure as variáveis de ambiente
+- A primeira coisa a se fazer é copiar o conteúdo do arquivo .env.example para um novo arquivo na raiz do seu projeto chamado .env
+- Em seguida vamos configurar as varivaeis de ambiente relacionadas a APP CONFIGURATIONS.
+- Forneça as informações relacionadas a APP_PORT a qual se refere a porta a qual a aplicação ira rodar
+- Forneça as informações relacionadas ao APP_JWT_SECRET a qual se refere ao segredo da chave JWT a qual controla a nossa autenticação no app, a escolha do valor dessa variavel fica ao seu critério, caso o deixe vazio a aplicação irá usar um valor default como chave.
+- Em seguida vamos configurar as varivaveis relacionadas ao banco MongoDB, podendo esse ser executado tanto em localhost com a instância mongodb docker ou com um cluster MongoDB Atlas.
+- A proxima variavel em questão DB_DRIVER, se trata da variavel de driver do banco, podendo esse ser um dos dois valores: (localhost, atlas) o valor (localhost), foi programado para rodar com a instância mongodb a qual temos a opção de criar via Docker, já o valor (atlas) foi programado para rodar com um cluster [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), caso deixe a variavel fazia, a aplicação usará o valor (localhost) por padrão, portanto é muito importante indicar o valor corretamente.
+- Caso opte por executar a aplicação localmente a unica configuração restante será MONGO_DB_DATABASE_NAME a qual você irá indicar o nome do banco do seu banco de dados.
+- Caso opte por executar a aplicação via [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), indique os valores de: MONGO_DB_ATLAS_NAME a qual se refere ao nome da sua database Atlas, MONGO_DB_ATLAS_USER a qual se refere ao nome de usuário, MONGO_DB_ATLAS_PASS se refere ao password e MONGO_DB_ATLAS_CLUSTER a qual se refere ao nome do seu cluster.
+
+# Para príncipios de referencia as strings URIs de conexão Mongo na aplicação tem o seguinte modelo:
+
+# localhost:
+- mongodb://localhost:27017/${process.env.MONGO_DB_DATABASE_NAME}
+
+# atlas:
+- mongodb+srv://${process.env.MONGO_DB_ATLAS_USER}:${process.env.MONGO_DB_ATLAS_PASS}@${process.env.MONGO_DB_ATLAS_CLUSTER}.mongodb.net/${process.env.MONGO_DB_ATLAS_NAME}?retryWrites=true&w=majority
 
 # Execute os testes
 $ yarn test
 
 # Inicie o servidor
 $ yarn dev:server
+```
+
+### ATENÇÃO: As configurações de produção são totalmente orientadas para o uso com o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), por isso será necessário a criação de um cluster na mesma para a realização dos próximos passos. Portanto crie o seu cluster MongoDB Atlas e em seguida insira as informações pertinentes no arquivo .env, o qual foi explicado no passo anterior.
+
+### Configurações para rodar a aplicação em produção:
+
+```bash
+# Crie uma imagem da aplicação via Dockerfile, executando no terminal o comando abaixo:
+$ docker build -t crud-node/api .
+
+# Inicie o container.
+$ docker run -p 3333:3333 -d crud-node/api
+
+# Caso o terminal mostre a mensagem: Server Online on Port 3333, significa que o servidor foi executado em um container Docker com sucesso!
 ```
 
 ## Para testar as rotas da aplicação acesse o link abaixo:
