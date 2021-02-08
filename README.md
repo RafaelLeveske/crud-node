@@ -15,6 +15,79 @@
 
 - As empresas podem conter um ou mais produtos, assim como cada produto pode conter um ou mais serviços.
 
+- Deste modo um usuário pode ter um array empresas e essas empresas possuem um array de produtos, e esses produtos possuem um array de serviços, como o exemplo em JSON abaixo:
+
+###GET Usuários
+
+```bash
+{
+  "companies": [
+    {
+      "products": [
+        "602176b5c6d67893e2e0459f"
+      ],
+      "_id": "602176a5c6d67893e2e0459e",
+      "name": "not3a-copmany1",
+      "cnpj": "12901199383128",
+      "created_at": "2021-02-08T17:36:37.329Z",
+      "updated_at": "2021-02-08T17:36:37.329Z",
+      "__v": 0
+    }
+  ],
+  "_id": "60217675c6d67893e2e0459c",
+  "name": "Rafael",
+  "email": "rafael4@gmail.com",
+  "created_at": "2021-02-08T17:35:49.806Z",
+  "updated_at": "2021-02-08T17:35:49.809Z",
+  "__v": 0
+}
+```
+
+GET Empresas
+```bash
+{
+  "products": [
+    {
+      "departments": [
+        "602178e1cd587698f59646b2"
+      ],
+      "_id": "602176b5c6d67893e2e0459f",
+      "name": "product",
+      "created_at": "2021-02-08T17:36:53.951Z",
+      "updated_at": "2021-02-08T17:36:53.951Z",
+      "__v": 0
+    }
+  ],
+  "_id": "602176a5c6d67893e2e0459e",
+  "name": "any-copmany",
+  "cnpj": "12901199383128",
+  "created_at": "2021-02-08T17:36:37.329Z",
+  "updated_at": "2021-02-08T17:36:37.329Z",
+  "__v": 0
+}
+}
+```
+
+GET Produtos
+```bash
+{
+  "departments": [
+    {
+      "_id": "602178e1cd587698f59646b2",
+      "name": "department",
+      "created_at": "2021-02-08T17:46:09.574Z",
+      "updated_at": "2021-02-08T17:46:09.575Z",
+      "__v": 0
+    }
+  ],
+  "_id": "602176b5c6d67893e2e0459f",
+  "name": "product",
+  "created_at": "2021-02-08T17:36:53.951Z",
+  "updated_at": "2021-02-08T17:36:53.951Z",
+  "__v": 0
+}
+```
+
 ## 🏁 Getting Started <a name = "getting_started"></a>
 Para clonar e utilizar essa aplicação você irá precisar do [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/) e [Docker](https://www.docker.com/) instalados em sua máquina.
 
