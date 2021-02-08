@@ -40,7 +40,7 @@ $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 # Configure as variáveis de ambiente
 - A primeira coisa a se fazer é copiar o conteúdo do arquivo .env.example para um novo arquivo na raiz do seu projeto chamado .env.
 - Em seguida vamos configurar as varivaeis de ambiente relacionadas a APP CONFIGURATIONS.
-- Forneça as informações relacionadas a APP_PORT a qual se refere a porta a qual a aplicação ira rodar
+- Forneça as informações relacionadas a APP_PORT a qual se refere a porta a qual a aplicação ira rodar, por parão a aplicação usa a porta 3333.
 - Forneça as informações relacionadas ao APP_JWT_SECRET a qual se refere ao segredo da chave JWT a qual controla a nossa autenticação no app, a escolha do valor dessa variavel fica ao seu critério, caso o deixe vazio a aplicação irá usar um valor default como chave.
 - Em seguida vamos configurar as varivaveis relacionadas ao banco MongoDB, podendo esse ser executado tanto em localhost com a instância mongodb docker ou com um cluster MongoDB Atlas.
 - A proxima variavel em questão DB_DRIVER, se trata da variavel de driver do banco, podendo esse ser um dos dois valores: (localhost, atlas) o valor (localhost), foi programado para rodar com a instância mongodb a qual temos a opção de criar via Docker, já o valor (atlas) foi programado para rodar com um cluster MongoDB Atlas, caso deixe a variavel fazia, a aplicação usará o valor (localhost) por padrão, portanto é muito importante indicar o valor corretamente.
