@@ -10,7 +10,6 @@ switch (process.env.DB_DRIVER) {
       useFindAndModify: false,
     });
 
-    console.log(dbConfig.uri.localhost);
     break;
 
   case 'atlas':
@@ -21,8 +20,6 @@ switch (process.env.DB_DRIVER) {
       useFindAndModify: false,
     });
 
-    console.log(dbConfig.uri.atlas);
-
     break;
 
   default:
@@ -32,8 +29,6 @@ switch (process.env.DB_DRIVER) {
       useCreateIndex: true,
       useFindAndModify: false,
     });
-
-    console.log(dbConfig.uri.localhost);
 
     break;
 }

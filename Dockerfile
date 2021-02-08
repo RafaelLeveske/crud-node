@@ -16,4 +16,4 @@ RUN yarn build
 
 EXPOSE 3333
 
-CMD ["node", "dist/shared/infra/http/server.js"]
+CMD ["yarn", "prod"]
