@@ -17,7 +17,7 @@
 
 - Deste modo um usuário pode ter um array empresas e essas empresas possuem um array de produtos, e esses produtos possuem um array de serviços, como o exemplo em JSON abaixo:
 
-###GET Usuários
+### GET Usuários
 
 ```bash
 {
@@ -43,7 +43,7 @@
 }
 ```
 
-GET Empresas
+### GET Empresas
 ```bash
 {
   "products": [
@@ -67,7 +67,7 @@ GET Empresas
 }
 ```
 
-GET Produtos
+### GET Produtos
 ```bash
 {
   "departments": [
