@@ -52,11 +52,16 @@ $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 ### Para príncipios de referencia as strings URIs de conexão Mongo na aplicação tem o seguinte modelo:
 
 ### localhost:
+```bash
 - mongodb://localhost:27017/${process.env.MONGO_DB_DATABASE_NAME}
+```
 
 ### atlas:
+```bash
 - mongodb+srv://${process.env.MONGO_DB_ATLAS_USER}:${process.env.MONGO_DB_ATLAS_PASS}@${process.env.MONGO_DB_ATLAS_CLUSTER}.mongodb.net/${process.env.MONGO_DB_ATLAS_NAME}?retryWrites=true&w=majority
+```
 
+### Continuando no terminal
 
 ```bash
 # Execute os testes
