@@ -35,7 +35,7 @@ $ yarn
 # Crie uma instância mongoDB usando docker
 $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 
-# Ou crie um novo cluster no [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+# Ou crie um novo cluster no MongoDB Atlas.
 
 # Configure as variáveis de ambiente
 - A primeira coisa a se fazer é copiar o conteúdo do arquivo .env.example para um novo arquivo na raiz do seu projeto chamado .env
@@ -43,9 +43,9 @@ $ docker run --name crud-node-mongodb -p 27017:27017 -d -t mongo
 - Forneça as informações relacionadas a APP_PORT a qual se refere a porta a qual a aplicação ira rodar
 - Forneça as informações relacionadas ao APP_JWT_SECRET a qual se refere ao segredo da chave JWT a qual controla a nossa autenticação no app, a escolha do valor dessa variavel fica ao seu critério, caso o deixe vazio a aplicação irá usar um valor default como chave.
 - Em seguida vamos configurar as varivaveis relacionadas ao banco MongoDB, podendo esse ser executado tanto em localhost com a instância mongodb docker ou com um cluster MongoDB Atlas.
-- A proxima variavel em questão DB_DRIVER, se trata da variavel de driver do banco, podendo esse ser um dos dois valores: (localhost, atlas) o valor (localhost), foi programado para rodar com a instância mongodb a qual temos a opção de criar via Docker, já o valor (atlas) foi programado para rodar com um cluster [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), caso deixe a variavel fazia, a aplicação usará o valor (localhost) por padrão, portanto é muito importante indicar o valor corretamente.
+- A proxima variavel em questão DB_DRIVER, se trata da variavel de driver do banco, podendo esse ser um dos dois valores: (localhost, atlas) o valor (localhost), foi programado para rodar com a instância mongodb a qual temos a opção de criar via Docker, já o valor (atlas) foi programado para rodar com um cluster MongoDB Atlas, caso deixe a variavel fazia, a aplicação usará o valor (localhost) por padrão, portanto é muito importante indicar o valor corretamente.
 - Caso opte por executar a aplicação localmente a unica configuração restante será MONGO_DB_DATABASE_NAME a qual você irá indicar o nome do banco do seu banco de dados.
-- Caso opte por executar a aplicação via [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), indique os valores de: MONGO_DB_ATLAS_NAME a qual se refere ao nome da sua database Atlas, MONGO_DB_ATLAS_USER a qual se refere ao nome de usuário, MONGO_DB_ATLAS_PASS se refere ao password e MONGO_DB_ATLAS_CLUSTER a qual se refere ao nome do seu cluster.
+- Caso opte por executar a aplicação via MongoDB Atlas, indique os valores de: MONGO_DB_ATLAS_NAME a qual se refere ao nome da sua database Atlas, MONGO_DB_ATLAS_USER a qual se refere ao nome de usuário, MONGO_DB_ATLAS_PASS se refere ao password e MONGO_DB_ATLAS_CLUSTER a qual se refere ao nome do seu cluster.
 
 # Para príncipios de referencia as strings URIs de conexão Mongo na aplicação tem o seguinte modelo:
 
