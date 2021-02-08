@@ -12,6 +12,8 @@ switch (process.env.DB_DRIVER) {
   case 'localhost':
     mongoose.connect(dbConfig.uri.localhost, mongooseConnectionOptions);
 
+    conseole.log(dbConfig);
+
     break;
 
   case 'atlas':
