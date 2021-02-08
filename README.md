@@ -62,7 +62,7 @@ $ yarn test
 $ yarn dev:server
 ```
 
-## ATENÇÃO: As configurações de produção são totalmente orientadas para o uso com o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), por isso será necessário a criação de um cluster na mesma para a realização dos próximos passos. Portanto crie o seu cluster MongoDB Atlas e em seguida insira as informações pertinentes no arquivo .env, o qual foi explicado no passo anterior.
+# ATENÇÃO: As configurações de produção são totalmente orientadas para o uso com o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), por isso será necessário a criação de um cluster na mesma para a realização dos próximos passos. Portanto crie o seu cluster MongoDB Atlas e em seguida insira as informações pertinentes no arquivo .env, o qual foi explicado no passo anterior.
 
 ### Configurações para rodar a aplicação em produção:
 
