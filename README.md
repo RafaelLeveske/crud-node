@@ -27,7 +27,7 @@
         "602176b5c6d67893e2e0459f"
       ],
       "_id": "602176a5c6d67893e2e0459e",
-      "name": "not3a-copmany1",
+      "name": "any-copmany",
       "cnpj": "12901199383128",
       "created_at": "2021-02-08T17:36:37.329Z",
       "updated_at": "2021-02-08T17:36:37.329Z",
