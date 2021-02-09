@@ -11,6 +11,7 @@ export default (() => {
   ac.grant('admin')
     .extend('basic')
     .extend('supervisor')
+    .readAny('profile')
     .updateAny('profile')
     .deleteAny('profile');
 
