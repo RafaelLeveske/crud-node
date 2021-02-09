@@ -21,6 +21,11 @@ const userSchema: Schema = new Schema({
   password: {
     type: String,
   },
+  role: {
+    type: String,
+    default: 'basic',
+    enum: ['basic', 'admin'],
+  },
   companies: [
     {
       type: Schema.Types.ObjectId,
