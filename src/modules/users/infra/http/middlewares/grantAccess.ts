@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express';
 import access from '@config/access';
 import AppError from '@shared/errors/AppError';
+import User from '../../mongoose/schemas/User';
 
 interface IAccessParams {
   resource: string;
@@ -19,13 +20,14 @@ export default function grantAccess({
 }: IAccessParams): RequestHandler {
   return async (request: Request, _response: Response, next: NextFunction) => {
     try {
-      const userRole = request.user.role;
+      const userId = request.user.id;
+      const user = await User.findById(userId).populate('companies');
 
-      if (!userRole) {
+      if (!user?.id) {
         throw new AppError("User don't exist", 400);
       }
 
-      const permission = access.can(userRole)[action](resource);
+      const permission = access.can(user.role)[action](resource);
 
       if (!permission.granted) {
         throw new AppError(

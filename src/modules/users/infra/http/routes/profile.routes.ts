@@ -9,12 +9,19 @@ const profileController = new ProfileController();
 
 profileRouter.use(ensureAuthenticated);
 
-profileRouter.get('/', profileController.show);
+profileRouter.get(
+  '/',
+  grantAccess({
+    action: 'readOwn' || 'readAny',
+    resource: 'profile',
+  }),
+  profileController.show,
+);
 
 profileRouter.put(
   '/',
   grantAccess({
-    action: 'readAny',
+    action: 'updateOwn' || 'updateAny',
     resource: 'profile',
   }),
   celebrate({
@@ -24,6 +31,7 @@ profileRouter.put(
       old_password: Joi.string(),
       password: Joi.string(),
       password_confirmation: Joi.string().valid(Joi.ref('password')),
+      role: Joi.string().valid('basic', 'admin'),
     },
   }),
   profileController.update,

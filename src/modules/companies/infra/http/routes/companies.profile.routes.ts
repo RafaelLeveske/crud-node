@@ -6,11 +6,12 @@ import CompanyProfileController from '../controllers/CompanyProfileController';
 const companyProfileRouter = Router();
 const companyProfileController = new CompanyProfileController();
 
+companyProfileRouter.use(ensureAuthenticated);
+
 companyProfileRouter.get('/', companyProfileController.show);
 
 companyProfileRouter.put(
   '/',
-  ensureAuthenticated,
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().max(100).required(),
@@ -20,10 +21,6 @@ companyProfileRouter.put(
   companyProfileController.update,
 );
 
-companyProfileRouter.delete(
-  '/',
-  ensureAuthenticated,
-  companyProfileController.delete,
-);
+companyProfileRouter.delete('/', companyProfileController.delete);
 
 export default companyProfileRouter;
