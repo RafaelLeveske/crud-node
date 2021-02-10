@@ -5,6 +5,7 @@ export type UserModel = mongoose.Document & {
   name: string;
   email: string;
   password: string;
+  role: string;
   company: CompanyModel['_id'];
   created_at: Date;
   updated_at: Date;

@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction, RequestHandler } from 'express';
 import access from '@config/access';
 import AppError from '@shared/errors/AppError';
 
@@ -13,14 +13,19 @@ interface IAccessParams {
     | 'deleteAny';
 }
 
-export default function grantAccess({ resource, action }: IAccessParams): void {
-  const grant = async (
-    request: Request,
-    response: Response,
-    next: NextFunction,
-  ) => {
+export default function grantAccess({
+  resource,
+  action,
+}: IAccessParams): RequestHandler {
+  return async (request: Request, _response: Response, next: NextFunction) => {
     try {
-      const permission = access.can(request.user.role)[action](resource);
+      const userRole = request.user.role;
+
+      if (!userRole) {
+        throw new AppError("User don't exist", 400);
+      }
+
+      const permission = access.can(userRole)[action](resource);
 
       if (!permission.granted) {
         throw new AppError(

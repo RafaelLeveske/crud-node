@@ -10,6 +10,7 @@ interface IRequest {
   name: string;
   email: string;
   password: string;
+  role: string;
 }
 
 @injectable()
@@ -26,6 +27,7 @@ class CreateUserSercice {
     name,
     email,
     password,
+    role,
   }: IRequest): Promise<UserModel> {
     const checkUserExists = await this.usersRepository.findByEmail(email);
     if (checkUserExists) {
@@ -38,6 +40,7 @@ class CreateUserSercice {
       name,
       email,
       password: hashedPassword,
+      role: role || 'basic',
     });
 
     return user;
