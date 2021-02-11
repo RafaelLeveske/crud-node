@@ -23,6 +23,7 @@ describe('CreateCompany', () => {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
+      role: 'basic',
     });
 
     const company = await createCompany.execute({
@@ -40,6 +41,7 @@ describe('CreateCompany', () => {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
+      role: 'basic',
     });
 
     await createCompany.execute({
@@ -62,6 +64,7 @@ describe('CreateCompany', () => {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
+      role: 'basic',
     });
 
     await createCompany.execute({

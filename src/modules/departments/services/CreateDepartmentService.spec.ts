@@ -29,6 +29,7 @@ describe('CreateDepartment', () => {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
+      role: 'basic',
     });
 
     const company = await fakeCompaniesRepository.create({

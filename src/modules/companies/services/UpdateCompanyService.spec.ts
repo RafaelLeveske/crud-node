@@ -20,6 +20,7 @@ describe('UpdateCompany', () => {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
+      role: 'basic',
     });
 
     const company = await fakeCompaniesRepository.create({
@@ -53,6 +54,7 @@ describe('UpdateCompany', () => {
       name: 'John Test',
       email: 'johntest@example.com',
       password: '123456',
+      role: 'basic',
     });
 
     await fakeCompaniesRepository.create({
@@ -81,6 +83,7 @@ describe('UpdateCompany', () => {
       name: 'John Test',
       email: 'johntest@example.com',
       password: '123456',
+      role: 'basic',
     });
 
     await fakeCompaniesRepository.create({
